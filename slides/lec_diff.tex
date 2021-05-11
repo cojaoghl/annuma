@@ -1,0 +1,776 @@
+\documentclass{beamer}
+\usepackage{amsmath,graphics}
+\usepackage{amssymb}
+
+\usetheme{default}
+\usepackage{xcolor}
+
+\definecolor{solarizedBase03}{HTML}{002B36}
+\definecolor{solarizedBase02}{HTML}{073642}
+\definecolor{solarizedBase01}{HTML}{586e75}
+\definecolor{solarizedBase00}{HTML}{657b83}
+\definecolor{solarizedBase0}{HTML}{839496}
+\definecolor{solarizedBase1}{HTML}{93a1a1}
+\definecolor{solarizedBase2}{HTML}{EEE8D5}
+\definecolor{solarizedBase3}{HTML}{FDF6E3}
+\definecolor{solarizedYellow}{HTML}{B58900}
+\definecolor{solarizedOrange}{HTML}{CB4B16}
+\definecolor{solarizedRed}{HTML}{DC322F}
+\definecolor{solarizedMagenta}{HTML}{D33682}
+\definecolor{solarizedViolet}{HTML}{6C71C4}
+%\definecolor{solarizedBlue}{HTML}{268BD2}
+\definecolor{solarizedBlue}{HTML}{134676}
+\definecolor{solarizedCyan}{HTML}{2AA198}
+\definecolor{solarizedGreen}{HTML}{859900}
+\definecolor{myBlue}{HTML}{162DB0}%{261CA4}
+\setbeamercolor*{item}{fg=myBlue}
+\setbeamercolor{normal text}{fg=solarizedBase03, bg=solarizedBase3}
+\setbeamercolor{alerted text}{fg=myBlue}
+\setbeamercolor{example text}{fg=myBlue, bg=solarizedBase3}
+\setbeamercolor*{frametitle}{fg=solarizedRed}
+\setbeamercolor*{title}{fg=solarizedRed}
+\setbeamercolor{block title}{fg=myBlue, bg=solarizedBase3}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\beamertemplatenavigationsymbolsempty
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+\usepackage{fourier}
+
+\def\vec#1{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+{\mbox{\boldmath$\textstyle#1$}}
+{\mbox{\boldmath$\scriptstyle#1$}}
+{\mbox{\boldmath$\scriptscriptstyle#1$}}}
+\definecolor{OwnGrey}{rgb}{0.560,0.000,0.000} % #999999
+\definecolor{OwnBlue}{rgb}{0.121,0.398,0.711} % #1f64b0
+\definecolor{red4}{rgb}{0.5,0,0}
+\definecolor{blue4}{rgb}{0,0,0.5}
+\definecolor{Blue}{rgb}{0,0,0.66}
+\definecolor{LightBlue}{rgb}{0.9,0.9,1}
+\definecolor{Green}{rgb}{0,0.5,0}
+\definecolor{LightGreen}{rgb}{0.9,1,0.9}
+\definecolor{Red}{rgb}{0.9,0,0}
+\definecolor{LightRed}{rgb}{1,0.9,0.9}
+\definecolor{White}{gray}{1}
+\definecolor{Black}{gray}{0}
+\definecolor{LightGray}{gray}{0.8}
+\definecolor{Orange}{rgb}{0.1,0.2,1}
+\setbeamerfont{sidebar right}{size=\scriptsize}
+\setbeamercolor{sidebar right}{fg=Black}
+
+\renewcommand{\emph}[1]{{\textcolor{solarizedRed}{\itshape #1}}}
+
+\newcommand\cA{\mathcal A}
+\newcommand\cB{\mathcal B}
+\newcommand\cC{\mathcal C}
+\newcommand\cD{\mathcal D}
+\newcommand\cE{\mathcal E}
+\newcommand\cF{\mathcal F}
+\newcommand\cG{\mathcal G}
+\newcommand\cH{\mathcal H}
+\newcommand\cI{\mathcal I}
+\newcommand\cJ{\mathcal J}
+\newcommand\cK{\mathcal K}
+\newcommand\cL{\mathcal L}
+\newcommand\cM{\mathcal M}
+\newcommand\cN{\mathcal N}
+\newcommand\cO{\mathcal O}
+\newcommand\cP{\mathcal P}
+\newcommand\cQ{\mathcal Q}
+\newcommand\cR{\mathcal R}
+\newcommand\cS{\mathcal S}
+\newcommand\cT{\mathcal T}
+\newcommand\cU{\mathcal U}
+\newcommand\cV{\mathcal V}
+\newcommand\cW{\mathcal W}
+\newcommand\cX{\mathcal X}
+\newcommand\cY{\mathcal Y}
+\newcommand\cZ{\mathcal Z}
+
+\newcommand\fA{\mathfrak A}
+\newcommand\fB{\mathfrak B}
+\newcommand\fC{\mathfrak C}
+\newcommand\fD{\mathfrak D}
+\newcommand\fE{\mathfrak E}
+\newcommand\fF{\mathfrak F}
+\newcommand\fG{\mathfrak G}
+\newcommand\fH{\mathfrak H}
+\newcommand\fI{\mathfrak I}
+\newcommand\fJ{\mathfrak J}
+\newcommand\fK{\mathfrak K}
+\newcommand\fL{\mathfrak L}
+\newcommand\fM{\mathfrak M}
+\newcommand\fN{\mathfrak N}
+\newcommand\fO{\mathfrak O}
+\newcommand\fP{\mathfrak P}
+\newcommand\fQ{\mathfrak Q}
+\newcommand\fR{\mathfrak R}
+\newcommand\fS{\mathfrak S}
+\newcommand\fT{\mathfrak T}
+\newcommand\fU{\mathfrak U}
+\newcommand\fV{\mathfrak V}
+\newcommand\fW{\mathfrak W}
+\newcommand\fX{\mathfrak X}
+\newcommand\fY{\mathfrak Y}
+\newcommand\fZ{\mathfrak Z}
+
+\newcommand\fa{\mathfrak a}
+\newcommand\fb{\mathfrak b}
+\newcommand\fc{\mathfrak c}
+\newcommand\fd{\mathfrak d}
+\newcommand\fe{\mathfrak e}
+\newcommand\ff{\mathfrak f}
+\newcommand\fg{\mathfrak g}
+\newcommand\fh{\mathfrak h}
+%\newcommand\fi{\mathfrak i}
+\newcommand\fj{\mathfrak j}
+\newcommand\fk{\mathfrak k}
+\newcommand\fl{\mathfrak l}
+\newcommand\fm{\mathfrak m}
+\newcommand\fn{\mathfrak n}
+\newcommand\fo{\mathfrak o}
+\newcommand\fp{\mathfrak p}
+\newcommand\fq{\mathfrak q}
+\newcommand\fr{\mathfrak r}
+\newcommand\fs{\mathfrak s}
+\newcommand\ft{\mathfrak t}
+\newcommand\fu{\mathfrak u}
+\newcommand\fv{\mathfrak v}
+\newcommand\fw{\mathfrak w}
+\newcommand\fx{\mathfrak x}
+\newcommand\fy{\mathfrak y}
+\newcommand\fz{\mathfrak z}
+
+\newcommand\vA{\vec A}
+\newcommand\vB{\vec B}
+\newcommand\vC{\vec C}
+\newcommand\vD{\vec D}
+\newcommand\vE{\vec E}
+\newcommand\vF{\vec F}
+\newcommand\vG{\vec G}
+\newcommand\vH{\vec H}
+\newcommand\vI{\vec I}
+\newcommand\vJ{\vec J}
+\newcommand\vK{\vec K}
+\newcommand\vL{\vec L}
+\newcommand\vM{\vec M}
+\newcommand\vN{\vec N}
+\newcommand\vO{\vec O}
+\newcommand\vP{\vec P}
+\newcommand\vQ{\vec Q}
+\newcommand\vR{\vec R}
+\newcommand\vS{\vec S}
+\newcommand\vT{\vec T}
+\newcommand\vU{\vec U}
+\newcommand\vV{\vec V}
+\newcommand\vW{\vec W}
+\newcommand\vX{\vec X}
+\newcommand\vY{\vec Y}
+\newcommand\vZ{\vec Z}
+
+\newcommand\va{\vec a}
+\newcommand\vb{\vec b}
+\newcommand\vc{\vec c}
+\newcommand\vd{\vec d}
+\newcommand\ve{\vec e}
+\newcommand\vf{\vec f}
+\newcommand\vg{\vec g}
+\newcommand\vh{\vec h}
+\newcommand\vi{\vec i}
+\newcommand\vj{\vec j}
+\newcommand\vk{\vec k}
+\newcommand\vl{\vec l}
+\newcommand\vm{\vec m}
+\newcommand\vn{\vec n}
+\newcommand\vo{\vec o}
+\newcommand\vp{\vec p}
+\newcommand\vq{\vec q}
+\newcommand\vr{\vec r}
+\newcommand\vs{\vec s}
+\newcommand\vt{\vec t}
+\newcommand\vu{\vec u}
+\newcommand\vv{\vec v}
+\newcommand\vw{\vec w}
+\newcommand\vx{\vec x}
+\newcommand\vy{\vec y}
+\newcommand\vz{\vec z}
+
+\renewcommand\AA{\mathbb A}
+\newcommand\NN{\mathbb N}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\PP{\mathbb P}
+\newcommand\QQ{\mathbb Q}
+\newcommand\RR{\mathbb R}
+\newcommand\RRpos{\mathbb R_{\geq0}}
+\renewcommand\SS{\mathbb S}
+\newcommand\CC{\mathbb C}
+
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\pr}{\mathrm{P}}
+\newcommand{\Vol}{\mathrm{vol}}
+\newcommand\norm[1]{\left\|{#1}\right\|} 
+\newcommand\sign{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand\bc[1]{\left({#1}\right)} 
+\newcommand\cbc[1]{\left\{{#1}\right\}} 
+\newcommand\bcfr[2]{\bc{\frac{#1}{#2}}} 
+\newcommand{\bck}[1]{\left\langle{#1}\right\rangle} 
+\newcommand\brk[1]{\left\lbrack{#1}\right\rbrack} 
+\newcommand\scal[2]{\bck{{#1},{#2}}} 
+\newcommand{\vecone}{\mathbb{1}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\ggt}{\mathrm{ggT}}
+\newcommand{\kgv}{\mathrm{kgV}}
+\newcommand{\trans}{\top}
+
+\newcommand{\Karonski}{Karo\'nski}
+\newcommand{\Erdos}{Erd\H{o}s}
+\newcommand{\Renyi}{R\'enyi}
+\newcommand{\Lovasz}{Lov\'asz}
+\newcommand{\Juhasz}{Juh\'asz}
+\newcommand{\Bollobas}{Bollob\'as}
+\newcommand{\Furedi}{F\"uredi}
+\newcommand{\Komlos}{Koml\'os}
+\newcommand{\Luczak}{\L uczak}
+\newcommand{\Kucera}{Ku\v{c}era}
+\newcommand{\Szemeredi}{Szemer\'edi}
+
+\renewcommand{\ae}{\"a}
+\renewcommand{\oe}{\"o}
+\newcommand{\ue}{\"u}
+\newcommand{\Ae}{\"A}
+\newcommand{\Oe}{\"O}
+\newcommand{\Ue}{\"U}
+
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\rrk}{\mathrm{zrg}}
+\newcommand{\crk}{\mathrm{srg}}
+\newcommand{\rk}{\mathrm{rg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\nul}{\mathrm{nul}}
+\newcommand{\eig}{\mathrm{eig}}
+
+\newcommand{\mytitle}{Die Ableitung}
+
+\title[Annuma]{\mytitle}
+\author[Amin Coja-Oghlan]{Amin Coja-Oghlan}
+\institute[Frankfurt]{JWGUFFM}
+\date{}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Worum geht es?}
+		\begin{itemize}
+			\item Die Ableitung einer Funktion gibt an, wie sich die Funktion an einer Stelle ver\ae ndert.
+			\item Stellen Sie sich den Funktionswert $f(t)$ als die Position eines Objektes zur Zeit $t$ vor.
+			\item Dann gibt die Ableitung $f'(t)$ die Geschwindigkeit an, mit der sich das Objekt bewegt.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $A\subseteq\RR$ eine Menge.
+			\item Wir definieren $\bar A$ als die Menge aller Zahlen $z\in\RR$, so da\ss\ es eine Folge $(a_n)_n$ mit $a_n\in A$ gibt, so da\ss
+				\begin{align*}
+					z=\lim_{n\to\infty}a_n.
+				\end{align*}
+			\item Die Menge $\bar A$ hei\ss t der \emph{Abschluss} von $A$.
+			\item {\itshape Die Menge $\bar A$ enth\ae lt $A$ als Teilmenge. Au\ss erdem enth\ae lt $\bar A$ die ``Randpunkte'' von $A$.}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Seien $a<b$ reelle Zahlen.
+			\item Sei $A=(a,b)=\cbc{x\in\RR:a<x<b}$ das offene Intervall von $a$ bis $b$.
+			\item Dann ist $\bar A=[a,b]$ das abgeschlossene Intervall.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Jede reelle Zahl ist Grenzwert einer Folge rationaler Zahlen.
+			\item Daher gilt $\bar\QQ=\RR$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $f:A\to B$ eine Funktion.
+			\item Sei $a\in\bar A$ und $z\in\RR$.
+			\item Wir sagen, \emph{$f(x)$ konvergiert gegen $z$ f\ue r $x$ gegen $a$}, wenn f\ue r jede Folge $(a_n)_n$ reeller Zahlen $a_n\in A$ mit $\lim_{n\to\infty}a_n=a$ gilt
+				\begin{align*}
+					\lim_{n\to\infty}f(a_n)=z.
+				\end{align*}
+			\item \alert{Sprechweise:} der Grenzwert von $f(x)$ f\ue r $x\to a$ ist gleich $z$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Betrachte die Funktion $f:\RR\to\RR$, $x\mapsto x^2+3x+4$.
+			\item F\ue r jede Folge $(a_n)_n$ mit $\lim_{n\to\infty}a_n=0$ gilt nach den Rechenregeln f\ue r Grenzwerte
+				\begin{align*}
+					\lim_{n\to\infty}f(a_n)=\lim_{n\to\infty}a_n^2+3a_n+4=0^2+3\cdot 0+4=4.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $A\subseteq\RR$.
+			\item Wir definieren das \emph{Innere von $A$} als die Menge $A^\circ$ aller $x\in\RR$ zu denen eine Zahl $\eps>0$ existiert, so da\ss\
+				\begin{align*}
+					[x-\eps,x+\eps]\subseteq A.
+				\end{align*}
+			\item {\itshape $A$ enth\ae lt also ein kleines Intervall von Zahlen um $x$ herum.}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Sei $A=[0,1]\cup\cbc{2}$.
+			\item Dann ist $A^\circ=(0,1)$ das offene Intervall von $0$ bis $1$.
+			\item Denn wenn $x\in(0,1)$, dann gibt es eine Zahl $\eps>0$ mit $[x-\eps,x+\eps]\subseteq A$.
+			\item Aber wenn $x\not\in A$ oder $x\in\{0,1,2\}$, dann gibt es keine solche Zahl $\eps>0$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Wir k\oe nnen das Innere und den Abschluss kombinieren:
+				\begin{align*}
+					\overline{A^\circ}=[0,1].
+				\end{align*}
+			\item Der isolierte Punkt $2$ geht bei dieser Operation also verloren.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $f:A\to\RR$ eine Funktion.
+			\item Sei $z\in\overline{A^\circ}$.
+			\item Wir nennen $f$ \emph{differenzierbar in $z$}, wenn der Grenzwert
+				\begin{align*}
+					\lim_{x\to z}\frac{f(x)-f(z)}{x-z}
+				\end{align*}
+				existiert.
+			\item In diesem Fall hei\ss t dieser Grenzwert die \emph{Ableitung von $f$ in $z$}, geschrieben als
+				\begin{align*}
+					f'(z)=\lim_{x\to z}\frac{f(x)-f(z)}{x-z}.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition (fortgesetzt)}
+		\begin{itemize}
+			\item Genauer definieren wir eine Funktion 
+				\begin{align*}
+					A\setminus\cbc z\to\RR,\qquad x\mapsto\frac{f(x)-f(z)}{x-z}.
+				\end{align*}
+			\item Wir bilden den Grenzwert obiger Funktion f\ue r $x\to z$:
+				\begin{align*}
+					\lim_{x\to z}\frac{f(x)-f(z)}{x-z}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Intuition: Geschwindigkeit}
+		\begin{itemize}
+			\item Sie nehmen an einem Triathlon teil.
+			\item Ihre Position entlang der Fahrradstrecke kann durch eine Funktion $$f:[0,T]\to[0,40]$$
+				beschrieben werden, die zu jedem Zeitpunkt Ihren Standort entlang der 40km langen Strecke angibt.
+			\item Dabei ist $T$ die Gesamtzeit, die Sie f\ue r die Fahrradstrecke ben\oe tigt haben.
+			\item Die Strecke ist bergig und naturgem\ae\ss\ fahren Sie bergab schneller als bergauf.
+			\item Wie k\oe nnen wir Ihre Geschwindigkeit \alert{zu einem bestimmten Zeitpunkt} messen?
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Intuition: Geschwindigkeit}
+		\begin{itemize}
+			\item Die Funktion $f$ ist beim Triathlon monton wachsend und $f(0)=0$, $f(1)=40$.
+			\item Wir k\oe nnen daher Ihre durchschnittliche Geschwindigkeit berechnen als
+				\begin{align*}
+					\frac{f(1)-f(0)}{T}=\frac{40}{T}.
+				\end{align*}
+			\item Aber wie steht es um Ihre Geschwindigkeit \alert{zum Zeitpunkt} $t\in[0,T]$?
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Intuition: Geschwindigkeit}
+		\begin{itemize}
+			\item Als N\ae herung k\oe nnten wir die Strecke berechnen, die Sie in 1s zur\ue ckgelegt haben, und diese durch 1s teilen:
+				\begin{align*}
+					\frac{f(t+1\mathrm s)-f(t)}{1\mathrm s}
+				\end{align*}
+			\item Eigentlich gibt es keinen guten Grund von $t$ aus ``nach oben'' zu z\ae hlen.
+			\item Ebensogut k\oe nnten wir berechnen
+				\begin{align*}
+				&	\frac{f(t-1\mathrm s)-f(t)}{1\mathrm s}\\
+				&	\frac{f(t-0.5\mathrm s)-f(t+0.5\mathrm s)}{1\mathrm s}\\
+				&	\frac{f(t-0.25\mathrm s)-f(t+0.75\mathrm s)}{1\mathrm s}\\
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Intuition: Geschwindigkeit}
+		\begin{itemize}
+			\item Wenn wir genau genug messen k\oe nnten, spr\ae che auch nichts dagegen, statt 1s ein k\ue rzeres Intervall zu verwenden:
+				\begin{align*}
+					&\frac{f(t+0.1\mathrm s)-f(t)}{0.1\mathrm s}\\
+					&\frac{f(t+0.01\mathrm s)-f(t)}{0.01\mathrm s}\\
+					&\qquad\qquad\vdots
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Intuition: Geschwindigkeit}
+		\begin{itemize}
+			\item Ultimativ m\oe chten wir also wissen, sie sich Ihre Position in einem \alert{beliebig kurzen} Zeitraum \alert{um den Zeitpunkt $t$ herum} ver\ae ndert.
+			\item So kommen wir auf die Definition
+				\begin{align*}
+					f'(t)&=\mbox{Geschwindigkeit zur Zeit t}\\
+						 &=\lim_{s\to t}\frac{f(t)-f(s)}{t-s}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Funktion $f:\RR\to\RR$, $x\mapsto x$ ist in jedem Punkt $z\in\RR$ differenzierbar.
+			\item Denn
+				\begin{align*}
+					\lim_{x\to z}\frac{f(z)-f(x)}{z-x}=\lim_{x\to z}\frac{z-x}{z-x}=\lim_{x\to z}1=1.
+				\end{align*}
+			\item Also $f'(z)=1$ f\ue r alle $z\in\RR$.
+			\item \itshape Stellen Sie sich eine Bewegung mit gleichm\ae ssiger Geschwindigkeit vor.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Funktion $f:\RR\to\RR$, $x\mapsto |x|$ ist in jedem Punkt $z\in\RR\setminus\cbc 0$ differenzierbar.
+			\item Denn 
+				\begin{align*}
+					f'(z)&=\lim_{x\to z}\frac{z-x}{z-x}=1&&\mbox{f\ue r }z>0\\
+					f'(z)&=\lim_{x\to z}\frac{-z-(-x)}{z-x}=-1&&\mbox{f\ue r }z<0
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Jedoch ist die Funktion im Punkt $z=0$ \alert{nicht} differenzierbar.
+			\item Denn die Folge $a_n=(-1)^n/n$ konvergiert gegen $0$, aber 
+				\begin{align*}
+					\frac{f(a_n)-f(0)}{a_n-0}&=\frac{f(a_n)}{a_n}=\frac{1/n}{1/n}=1&&\mbox{wenn $n$ gerade},\\
+					\frac{f(a_n)-f(0)}{a_n-0}&=\frac{f(a_n)}{a_n}=\frac{1/n}{-1/n}=-1&&\mbox{wenn $n$ ungerade}.
+				\end{align*}
+			\item Daher alterniert die Folge $\frac{f(a_n)-f(0)}{a_n-0}$: $-1$,1,$-1$,1,\ldots
+			\item Der Grenzwert
+				\begin{align*}
+					\lim_{n\to\infty}\frac{f(a_n)-f(0)}{a_n-0}
+				\end{align*}
+				existiert also nicht.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Funktion $f:\RR\setminus\cbc 0\to\RR$, $x\mapsto 1/x$ ist in jedem Punkt $z\in\RR\setminus\cbc 0$ differenzierbar.
+			\item Denn 
+				\begin{align*}
+					\frac{f(x)-f(z)}{x-z}&=\frac{1/x-1/z}{x-z}=\frac{z-x}{zx(x-z)}=-\frac{1}{zx}.
+				\end{align*}
+			\item Aus den Rechenregeln f\ue r Grenzwerte folgt also
+				\begin{align*}
+				\lim_{x\to z}\frac{f(x)-f(z)}{x-z}&=-\lim_{x\to z}\frac{1}{zx}=-\frac{1}{z^2}.
+				\end{align*}
+			\item Also gilt $f'(z)=-1/z^2$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Lemma}
+		Wenn $f:A\to\RR$ im Punkt $a\in A$ differenzierbar ist, dann ist $f$ in diesem Punkt auch stetig.
+	\end{block}
+	\begin{block}{Beweis}
+	\begin{itemize}
+		\item Angenommen $(a_n)_n$ konvergiert gegen $a$.
+		\item Wir definieren
+			\begin{align*}
+				e(x)=f(x)-\bc{f(a)+(x-a)f'(a)}.
+			\end{align*}
+		\item Die Idee ist, da\ss\ $e(x)$ der ``Fehlerterm'' ist, wenn wir $f$ durch ``Position zum Zeitpunkt $a$ plus Geschwindigkeit zum Zeitpunkt $a$ mal Zeitdifferenz $x-a$'' approximieren:
+			\begin{align*}
+				f(x)\approx f(a)+(x-a)f'(a).
+			\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beweis (fortgesetzt)}
+	\begin{itemize}
+		\item Weil
+			\begin{align*}
+				\lim_{n\to\infty}f(a)-(a_n-a)f'(a)=f(a)-f'(a)\lim_{n\to\infty}a_n-a=f(a),
+			\end{align*}
+			reicht es aus zu zeigen, da\ss
+			\begin{align*}
+				\lim_{x\to a}e(x)=0.
+			\end{align*}
+		\item Dazu schreiben wir
+			\begin{align*}
+				\lim_{x\to a}e(x)&=\lim_{x\to a}\bc{f(x)-f(a)-(x-a)f'(a)}\\
+								 &=\lim_{x\to a}\underbrace{\bc{\frac{f(x)-f(a)}{x-a}-f'(a)}}_{\to 0}\underbrace{(x-a)}_{\to 0}=0.
+			\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+	\begin{itemize}
+		\item Angenommen $f:A\to\RR$ ist in allen Punkten $x\in A$ differenzierbar.
+		\item Dann nennen wir $f$ \emph{differenzierbar}.
+		\item In diesem Fall hei\ss t die Funktion
+			\begin{align*}
+				f':A\to\RR,\qquad x\mapsto f'(x)
+			\end{align*}
+			die \emph{Ableitung} von $f$ auf $A$.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition\hfill[``Linearit\ae t  der Ableitung, Teil 1'']}
+	\begin{itemize}
+		\item Angenommen $f,g:A\to\RR$ sind differenzierbar in $z$.
+		\item Dann ist auch $f+g:A\to\RR$ differenzierbar in $z$ und
+			\begin{align*}
+				(f+g)'(z)=f'(z)+g'(z).
+			\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition\hfill[``Linearit\ae t  der Ableitung, Teil 2'']}
+	\begin{itemize}
+		\item Angenommen $f:A\to\RR$ ist differenzierbar in $z$.
+		\item Dann ist f\ue r jede Zahl $c\in\RR$ die Funktion
+			\begin{align*}
+				c\cdot f:A\to\RR,\qquad x\mapsto c\cdot f(x)
+			\end{align*}
+			differenzierbar in $z$ und
+			\begin{align*}
+				(c\cdot f)'(z)=c\cdot f'(z).
+			\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition\hfill[``Produktregel'']}
+	\begin{itemize}
+		\item Angenommen $f,g:A\to\RR$ sind differenzierbar in $z$.
+		\item Dann ist auch $f\cdot g:A\to\RR$ differenzierbar in $z$ und
+			\begin{align*}
+				(f\cdot g)'(z)=f'(z)\cdot g(z)+f(z)\cdot g'(z).
+			\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Korollar}
+		Jedes Polynom
+		\begin{align*}
+			f:\RR\to\RR,\qquad x\mapsto \sum_{i=0}^ka_ix^i
+		\end{align*}
+		ist differenzierbar und
+		\begin{align*}
+			f'(z)&=\sum_{i=1}^k ia_ix^{i-1}.
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+	\begin{itemize}
+		\item Die konstante Funktion $f(x)=7$ hat die Ableitung
+		\begin{align*}
+			f'(z)&=0.
+		\end{align*}
+	\item Die affine Funktion $ g(x)=-5x+7 $ hat die Ableitung
+		\begin{align*}
+			g'(x)&=-5
+		\end{align*}
+	\item Die quadratische Funktion $ h(x)=3x^2-5x+7 $ hat die Ableitung
+		\begin{align*}
+			h'(x)&=6x-5.
+		\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Kettenregel}
+		Angenommen $f:A\to B$ ist differenzierbar im Punkt $z\in A$ und $g:B\to\RR$ ist differenzierbar im Punkt $f(z)$. 
+		Dann ist $g\circ f:A\to\RR$ differenzierbar im Punkt $z$ und
+		\begin{align*}
+			(g\circ f)'(z)=g'(f(z))f'(z).
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Quotientenregel}
+		Angenommen $f,g:A\to\RR$ sind im Punkt $z\in A$ differenzierbar und $g(x)\neq0$ f\ue r alle $x\in A$.
+		Dann ist auch die Funktion
+		\begin{align*}
+			\frac{f}{g}:A\to\RR,\qquad x\mapsto\frac{f(x)}{g(x)}
+		\end{align*}
+		im Punkt $z$ differenzierbar und
+		\begin{align*}
+			\bcfr fg'(z)&=\frac{f'(z)g(z)-f(z)g'(z)}{g(z)^2}.
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Mittelwertsatz der Differentialrechnung}
+	\begin{itemize}
+		\item Angenommen $a<b$ sind reelle Zahlen.
+		\item Sei $f:[a,b]\to\RR$ eine stetige Funktion, die in jedem Punkt $z\in(a,b)$ differenzierbar ist.
+		\item Dann gibt es einen Punkt $c\in(a,b)$ mit
+			\begin{align*}
+				f'(c)&=\frac{f(b)-f(a)}{b-a}.
+			\end{align*}
+		\item {\itshape Intuition: zwischen dem Beginn $a$ der Reise und ihrem Ende $b$ gibt es irgendeinen Zeitpunkt $c$, zu dem die aktuelle Geschwindigkeit genau gleich der durchschnittlichen Reisegeschwindigkeit $(f(b)-f(a))/(b-a)$ ist.}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+	\begin{itemize}
+		\item Eine Funktion $f:A\to\RR$ hei\ss t \emph{monoton wachsend}, wenn $f(a)\leq f(b)$ f\ue r alle $a,b\in A$ mit $a\leq b$.
+		\item Die Funktion hei\ss t \emph{monoton fallend}, wenn $f(a)\geq f(b)$ f\ue r alle $a,b\in A$ mit $a\leq b$.
+		\item Die Funktion hei\ss t \emph{konstant}, wenn sie sowohl monoton wachsend als auch monoton fallend ist.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition}
+	\begin{itemize}
+		\item Sei $f:[a,b]\to\RR$ eine stetige Funktion, die in jedem Punkt $z\in(a,b)$ differenzierbar ist.
+		\item $f$ ist genau dann monoton wachsend, wenn $f'(z)\geq0$ f\ue r alle $z\in(a,b)$.
+		\item $f$ ist genau dann monoton fallend, wenn $f'(z)\leq0$ f\ue r alle $z\in(a,b)$.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		Eine Funktion $f:A\to\RR$ hei\ss t \emph{stetig differenzierbar}, wenn sie differenzierbar ist und die Ableitung $f':A\to\RR$ stetig ist.
+	\end{block}
+\begin{block}{Beispiel}
+		Weil Polynome als Ableitungen Polynome haben, sind Polynome stetig differenzierbar.
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Satz von der Umkehrfunktion}
+	\begin{itemize}
+		\item Angenommen $f:(a,b)\to B$ ist stetig, bijektiv und im Punkt $z\in(a,b)$ differenzierbar mit
+			\begin{align*}
+				f'(z)\neq0.
+			\end{align*}
+		\item Dann ist die Umkehrfunktion $f^{-1}:B\to(a,b)$ im Punkt $f(z)$ differenzierbar und
+		\begin{align*}
+			(f^{-1})'(f(z))&=\frac{1}{f'(z)}.
+		\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+	\begin{itemize}
+		\item Die Funktion $f:(0,\infty)\to(0,\infty)$, $x\mapsto x^2$ ist ein Polynom und daher differenzierbar.
+		\item Die Ableitung ist $f'(z)=2z>0$.
+		\item Daher ist auch die Umkehrfunktion
+			\begin{align*}
+				f^{-1}:(0,\infty)\to(0,\infty),\qquad x\mapsto\sqrt x
+			\end{align*}
+			differenzierbar.
+		\item Ihre Ableitung ist
+			\begin{align*}
+				{f^{-1}}'(z^2)={f^{-1}}'(f(z))=\frac{1}{f'(z)}=\frac{1}{2z}.
+			\end{align*}
+		\item Setzen wir $z=\sqrt y$, so erhalten wir $ {f^{-1}}'(y)=\frac{1}{2\sqrt y}.  $
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zusammenfassung}
+	\begin{itemize}
+		\item Die Ableitung einer Funktion $f$ im Punkt $z$ gibt die Geschwindigkeit an, mit der sich $z$ im Punkt $z$ ver\ae ndert.
+		\item Wir haben die Rechenregeln f\ue r die Ableitung kennengelernt: Linearit\ae t, Produktregel, Kettenregel, Quotientenregel, Satz von der Umkehrfunktion.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\end{document}

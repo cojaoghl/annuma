@@ -1,0 +1,828 @@
+\documentclass{beamer}
+\usepackage{amsmath,graphics}
+\usepackage{amssymb}
+
+\usetheme{default}
+\usepackage{xcolor}
+
+\definecolor{solarizedBase03}{HTML}{002B36}
+\definecolor{solarizedBase02}{HTML}{073642}
+\definecolor{solarizedBase01}{HTML}{586e75}
+\definecolor{solarizedBase00}{HTML}{657b83}
+\definecolor{solarizedBase0}{HTML}{839496}
+\definecolor{solarizedBase1}{HTML}{93a1a1}
+\definecolor{solarizedBase2}{HTML}{EEE8D5}
+\definecolor{solarizedBase3}{HTML}{FDF6E3}
+\definecolor{solarizedYellow}{HTML}{B58900}
+\definecolor{solarizedOrange}{HTML}{CB4B16}
+\definecolor{solarizedRed}{HTML}{DC322F}
+\definecolor{solarizedMagenta}{HTML}{D33682}
+\definecolor{solarizedViolet}{HTML}{6C71C4}
+%\definecolor{solarizedBlue}{HTML}{268BD2}
+\definecolor{solarizedBlue}{HTML}{134676}
+\definecolor{solarizedCyan}{HTML}{2AA198}
+\definecolor{solarizedGreen}{HTML}{859900}
+\definecolor{myBlue}{HTML}{162DB0}%{261CA4}
+\setbeamercolor*{item}{fg=myBlue}
+\setbeamercolor{normal text}{fg=solarizedBase03, bg=solarizedBase3}
+\setbeamercolor{alerted text}{fg=myBlue}
+\setbeamercolor{example text}{fg=myBlue, bg=solarizedBase3}
+\setbeamercolor*{frametitle}{fg=solarizedRed}
+\setbeamercolor*{title}{fg=solarizedRed}
+\setbeamercolor{block title}{fg=myBlue, bg=solarizedBase3}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\beamertemplatenavigationsymbolsempty
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+\usepackage{fourier}
+
+\def\vec#1{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+{\mbox{\boldmath$\textstyle#1$}}
+{\mbox{\boldmath$\scriptstyle#1$}}
+{\mbox{\boldmath$\scriptscriptstyle#1$}}}
+\definecolor{OwnGrey}{rgb}{0.560,0.000,0.000} % #999999
+\definecolor{OwnBlue}{rgb}{0.121,0.398,0.711} % #1f64b0
+\definecolor{red4}{rgb}{0.5,0,0}
+\definecolor{blue4}{rgb}{0,0,0.5}
+\definecolor{Blue}{rgb}{0,0,0.66}
+\definecolor{LightBlue}{rgb}{0.9,0.9,1}
+\definecolor{Green}{rgb}{0,0.5,0}
+\definecolor{LightGreen}{rgb}{0.9,1,0.9}
+\definecolor{Red}{rgb}{0.9,0,0}
+\definecolor{LightRed}{rgb}{1,0.9,0.9}
+\definecolor{White}{gray}{1}
+\definecolor{Black}{gray}{0}
+\definecolor{LightGray}{gray}{0.8}
+\definecolor{Orange}{rgb}{0.1,0.2,1}
+\setbeamerfont{sidebar right}{size=\scriptsize}
+\setbeamercolor{sidebar right}{fg=Black}
+
+\renewcommand{\emph}[1]{{\textcolor{solarizedRed}{\itshape #1}}}
+
+\newcommand\tay{T}
+\newcommand\dd{\mathrm d}
+\newcommand\eul{\mathrm e}
+\newcommand\ii{\vec i}
+
+\newcommand\cA{\mathcal A}
+\newcommand\cB{\mathcal B}
+\newcommand\cC{\mathcal C}
+\newcommand\cD{\mathcal D}
+\newcommand\cE{\mathcal E}
+\newcommand\cF{\mathcal F}
+\newcommand\cG{\mathcal G}
+\newcommand\cH{\mathcal H}
+\newcommand\cI{\mathcal I}
+\newcommand\cJ{\mathcal J}
+\newcommand\cK{\mathcal K}
+\newcommand\cL{\mathcal L}
+\newcommand\cM{\mathcal M}
+\newcommand\cN{\mathcal N}
+\newcommand\cO{\mathcal O}
+\newcommand\cP{\mathcal P}
+\newcommand\cQ{\mathcal Q}
+\newcommand\cR{\mathcal R}
+\newcommand\cS{\mathcal S}
+\newcommand\cT{\mathcal T}
+\newcommand\cU{\mathcal U}
+\newcommand\cV{\mathcal V}
+\newcommand\cW{\mathcal W}
+\newcommand\cX{\mathcal X}
+\newcommand\cY{\mathcal Y}
+\newcommand\cZ{\mathcal Z}
+
+\newcommand\fA{\mathfrak A}
+\newcommand\fB{\mathfrak B}
+\newcommand\fC{\mathfrak C}
+\newcommand\fD{\mathfrak D}
+\newcommand\fE{\mathfrak E}
+\newcommand\fF{\mathfrak F}
+\newcommand\fG{\mathfrak G}
+\newcommand\fH{\mathfrak H}
+\newcommand\fI{\mathfrak I}
+\newcommand\fJ{\mathfrak J}
+\newcommand\fK{\mathfrak K}
+\newcommand\fL{\mathfrak L}
+\newcommand\fM{\mathfrak M}
+\newcommand\fN{\mathfrak N}
+\newcommand\fO{\mathfrak O}
+\newcommand\fP{\mathfrak P}
+\newcommand\fQ{\mathfrak Q}
+\newcommand\fR{\mathfrak R}
+\newcommand\fS{\mathfrak S}
+\newcommand\fT{\mathfrak T}
+\newcommand\fU{\mathfrak U}
+\newcommand\fV{\mathfrak V}
+\newcommand\fW{\mathfrak W}
+\newcommand\fX{\mathfrak X}
+\newcommand\fY{\mathfrak Y}
+\newcommand\fZ{\mathfrak Z}
+
+\newcommand\fa{\mathfrak a}
+\newcommand\fb{\mathfrak b}
+\newcommand\fc{\mathfrak c}
+\newcommand\fd{\mathfrak d}
+\newcommand\fe{\mathfrak e}
+\newcommand\ff{\mathfrak f}
+\newcommand\fg{\mathfrak g}
+\newcommand\fh{\mathfrak h}
+%\newcommand\fi{\mathfrak i}
+\newcommand\fj{\mathfrak j}
+\newcommand\fk{\mathfrak k}
+\newcommand\fl{\mathfrak l}
+\newcommand\fm{\mathfrak m}
+\newcommand\fn{\mathfrak n}
+\newcommand\fo{\mathfrak o}
+\newcommand\fp{\mathfrak p}
+\newcommand\fq{\mathfrak q}
+\newcommand\fr{\mathfrak r}
+\newcommand\fs{\mathfrak s}
+\newcommand\ft{\mathfrak t}
+\newcommand\fu{\mathfrak u}
+\newcommand\fv{\mathfrak v}
+\newcommand\fw{\mathfrak w}
+\newcommand\fx{\mathfrak x}
+\newcommand\fy{\mathfrak y}
+\newcommand\fz{\mathfrak z}
+
+\newcommand\vA{\vec A}
+\newcommand\vB{\vec B}
+\newcommand\vC{\vec C}
+\newcommand\vD{\vec D}
+\newcommand\vE{\vec E}
+\newcommand\vF{\vec F}
+\newcommand\vG{\vec G}
+\newcommand\vH{\vec H}
+\newcommand\vI{\vec I}
+\newcommand\vJ{\vec J}
+\newcommand\vK{\vec K}
+\newcommand\vL{\vec L}
+\newcommand\vM{\vec M}
+\newcommand\vN{\vec N}
+\newcommand\vO{\vec O}
+\newcommand\vP{\vec P}
+\newcommand\vQ{\vec Q}
+\newcommand\vR{\vec R}
+\newcommand\vS{\vec S}
+\newcommand\vT{\vec T}
+\newcommand\vU{\vec U}
+\newcommand\vV{\vec V}
+\newcommand\vW{\vec W}
+\newcommand\vX{\vec X}
+\newcommand\vY{\vec Y}
+\newcommand\vZ{\vec Z}
+
+\newcommand\va{\vec a}
+\newcommand\vb{\vec b}
+\newcommand\vc{\vec c}
+\newcommand\vd{\vec d}
+\newcommand\ve{\vec e}
+\newcommand\vf{\vec f}
+\newcommand\vg{\vec g}
+\newcommand\vh{\vec h}
+\newcommand\vi{\vec i}
+\newcommand\vj{\vec j}
+\newcommand\vk{\vec k}
+\newcommand\vl{\vec l}
+\newcommand\vm{\vec m}
+\newcommand\vn{\vec n}
+\newcommand\vo{\vec o}
+\newcommand\vp{\vec p}
+\newcommand\vq{\vec q}
+\newcommand\vr{\vec r}
+\newcommand\vs{\vec s}
+\newcommand\vt{\vec t}
+\newcommand\vu{\vec u}
+\newcommand\vv{\vec v}
+\newcommand\vw{\vec w}
+\newcommand\vx{\vec x}
+\newcommand\vy{\vec y}
+\newcommand\vz{\vec z}
+
+\renewcommand\AA{\mathbb A}
+\newcommand\NN{\mathbb N}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\PP{\mathbb P}
+\newcommand\QQ{\mathbb Q}
+\newcommand\RR{\mathbb R}
+\newcommand\RRpos{\mathbb R_{\geq0}}
+\renewcommand\SS{\mathbb S}
+\newcommand\CC{\mathbb C}
+
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\pr}{\mathrm{P}}
+\newcommand{\Vol}{\mathrm{vol}}
+\newcommand\norm[1]{\left\|{#1}\right\|} 
+\newcommand\sign{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand\bc[1]{\left({#1}\right)} 
+\newcommand\cbc[1]{\left\{{#1}\right\}} 
+\newcommand\bcfr[2]{\bc{\frac{#1}{#2}}} 
+\newcommand{\bck}[1]{\left\langle{#1}\right\rangle} 
+\newcommand\brk[1]{\left\lbrack{#1}\right\rbrack} 
+\newcommand\scal[2]{\bck{{#1},{#2}}} 
+\newcommand{\vecone}{\mathbb{1}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\ggt}{\mathrm{ggT}}
+\newcommand{\kgv}{\mathrm{kgV}}
+\newcommand{\trans}{\top}
+
+\newcommand{\Karonski}{Karo\'nski}
+\newcommand{\Erdos}{Erd\H{o}s}
+\newcommand{\Renyi}{R\'enyi}
+\newcommand{\Lovasz}{Lov\'asz}
+\newcommand{\Juhasz}{Juh\'asz}
+\newcommand{\Bollobas}{Bollob\'as}
+\newcommand{\Furedi}{F\"uredi}
+\newcommand{\Komlos}{Koml\'os}
+\newcommand{\Luczak}{\L uczak}
+\newcommand{\Kucera}{Ku\v{c}era}
+\newcommand{\Szemeredi}{Szemer\'edi}
+
+\renewcommand{\ae}{\"a}
+\renewcommand{\oe}{\"o}
+\newcommand{\ue}{\"u}
+\newcommand{\Ae}{\"A}
+\newcommand{\Oe}{\"O}
+\newcommand{\Ue}{\"U}
+
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\rrk}{\mathrm{zrg}}
+\newcommand{\crk}{\mathrm{srg}}
+\newcommand{\rk}{\mathrm{rg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\nul}{\mathrm{nul}}
+\newcommand{\eig}{\mathrm{eig}}
+
+\newcommand{\mytitle}{LU-Zerlegung}
+
+\title[Annuma]{\mytitle}
+\author[Amin Coja-Oghlan]{Amin Coja-Oghlan}
+\institute[Frankfurt]{JWGUFFM}
+\date{}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Worum geht es?}
+		\begin{itemize}
+			\item Aus der Linearen Algebra kennen wir das Gau\ss verfahren zum L\oe sen linearer Gleichungssystem $Ax=b$.
+			\item In dieser Vorlesung lernern wir mit der LU-Zerlegung die praktische Umsetzung dieses Verfahrens auf dem Computer kennen.
+			\item Dabei befassen wir uns insbesondere mit der Konditionsanalyse.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Lineare Gleichungssysteme}
+		\begin{itemize}
+			\item Gegeben ist ein Gleichungssystem
+				\begin{align*}
+				Ax=b
+				\end{align*}
+				mit $A\in\RR^{n\times n}$ und $b\in\RR^n$.
+			\item Wir suchen eine L\oe sung $x\in\RR^n$.
+			\item Aus der linearen Algebra wissen wir, da\ss\ $$x=A^{-1}b$$ die eindeutig bestimmte L\oe sung ist, sofern $A$ invertierbar ist.
+			\item Wir haben ferner das \alert{Gau\ss sche Eliminationsverfahren} kennegelernt.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Lineare Gleichungssysteme (fortgesetzt)}
+		\begin{itemize}
+			\item Es ist numerisch keine gute Idee, beispielsweise mit dem Verfahren aus der B-LINADI-Vorlesung die inverse Matrix $A^{-1}$ zu bestimmen.
+			\item Stattdessen lernen wir die LU-Zerlegung kennen.
+			\item Dabei wird die L\"osung zur\ue ckgef\ue hrt auf zwei Gleichungssysteme, in denen die Matrix \alert{Zeilenstufenform} hat.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Lineare Gleichungssysteme in Zeilenstufenform}
+		\begin{itemize}
+			\item Angenommen die invertierbare Matrix $A$ hat Zeilenstufenform, d.h.\
+				\begin{align*}
+					a_{ij}&=0&&\mbox{f\ue r }i>j\\
+					a_{ii}&\neq0
+				\end{align*}
+			\item Dann k\oe nnen wir eine L\oe sung direkt bestimmen durch
+				\begin{align*}
+					x_n&=\frac{b_n}{a_{nn}}&
+					x_i&=\frac{b_i-\sum_{j=i+1}^na_{ij}x_j}{a_{ii}}&&(i=n-1,\ldots,1)
+				\end{align*}
+			\item Die Anzahl elementarer Rechenoperationen ist dabei von der Gr\oe\ss enordnung $n^2$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Lineare Gleichungssysteme in Zeilenstufenform (fortgesetzt)}
+		\begin{itemize}
+			\item Analog k\oe nnen wir vorgehen, wenn die Matrix $A^\trans$ Zeilenstufenform hat.
+			\item In diesem Fall gilt also
+				\begin{align*}
+					a_{ij}&=0&&\mbox{f\ue r }j>i\\
+					a_{ii}&\neq0.
+				\end{align*}
+			\item Man sagt dann, $A$ hat \emph{untere Dreiecksform}.
+			\item Statt Zeilenstufenform verwenden wir auch den Begriff \emph{obere Dreiecksform}.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Matrix
+				\begin{align*}
+				A=\begin{pmatrix}
+					2&0&0\\
+					1&3&0\\
+					0&1&4
+				\end{pmatrix}
+				\end{align*}
+				hat untere Dreiecksform.
+			\item Wir l\oe sen das Gleichungssystem 
+\begin{align*}
+	Ax&=b\qquad\mbox{mit}\qquad b=\begin{pmatrix}-2\\2\\9\end{pmatrix}
+\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Wir beginnen mit der ersten Gleichung
+				\begin{align*}
+					2x_1+0x_2+0x_3=-2,
+				\end{align*}
+				die die L\oe sung $x_1=-1$ besitzt.
+			\item Diese setzen wir in die zweite Gleichung ein, welche sich somit vereinfacht zu
+				\begin{align*}
+					1x_1+3x_2+0x_3&=2&
+					\Leftrightarrow&&3x_2&=3.
+				\end{align*}
+			\item Wir erhalten $x_2=1$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Einsetzen in die dritte und letzte Gleichung liefert
+				\begin{align*}
+					0x_1+1x_2+4x_3&=9&\Leftrightarrow&&4x_3=8,
+				\end{align*}
+				also $x_3=2$
+			\item Die L\oe sung lautet also $$x=\begin{pmatrix}-1\\1\\2\end{pmatrix}.$$
+			\item \alert{Probe:}
+				\begin{align*}
+					\begin{pmatrix} 2&0&0\\ 1&3&0\\ 0&1&4 \end{pmatrix}\begin{pmatrix}-1\\1\\2\end{pmatrix}
+									 &=\begin{pmatrix}
+										 2\cdot(-1)+0\cdot1+0\cdot2\\
+										 1\cdot(-1)+3\cdot1+0\cdot2\\
+										 0\cdot(-1)+1\cdot1+4\cdot2
+										 \end{pmatrix}=\begin{pmatrix}
+										 -2\\2\\9
+									 \end{pmatrix}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $A$ eine $n\times n$-Matrix.
+			\item Eine \emph{$LU$-Zerlegung} von $A$ besteht aus einer unteren $n\times n$-Dreiecksmatrix $L$ und einer oberen $n\times n$-Dreiecksmatrix $U$, so da\ss
+				\begin{align*}
+				A=L\cdot U
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\begin{block}{Anmerkung}
+		\begin{itemize}
+			\item Wenn $A$ invertierbar ist, dann sind auch $L,U$ invertierbar.
+			\item Denn $\det(A)=\det(L)\det(U)\neq0$.
+			\item Ferner sind in diesem Fall die Diagonaleintr\ae ge von $L,U$ alle von Null verschieden.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Matrix
+				\begin{align*}
+					A=\begin{pmatrix} -1&1\\1&1 \end{pmatrix}
+				\end{align*}
+				hat Determinante $\det(A)=-2$, ist also invertierbar.
+			\item Die Matrix besitzt die $LU$-Zerlegung
+				\begin{align*}
+					A&=\begin{pmatrix} 1&0\\-1&1 \end{pmatrix}\cdot\begin{pmatrix} -1&1\\0&2 \end{pmatrix}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Permutationsmatrizen}
+		Eine $n\times n$-Matrix $P$ ist eine Permutationsmatrix, wenn
+		\begin{itemize}
+			\item alle Eintr\ae ge von $P$ Null oder Eins sind,
+			\item in jeder Spalte genau eine Eins vorkommt,
+			\item in jeder Zeile genau eine Eins vorkommt.
+		\end{itemize}
+	\end{block}
+	\begin{block}{Beipsiel}
+		Die Matrix
+		\begin{align*}
+			\begin{pmatrix}
+				0&1&0\\1&0&0\\0&0&1
+			\end{pmatrix}
+		\end{align*}
+		ist eine Permutationsmatrix.
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Permutationsmatrizen (fortgesetzt)}
+		\begin{itemize}
+			\item Jede Permutation $\sigma$ von $\{1,\ldots,n\}$ induziert eine Permutationsmatrix $P_\sigma=(P_{\sigma,i,j})_{i,j=1,\ldots,n}$ mit Eintr\ae gen
+				\begin{align*}
+					P_{\sigma,i,j}=\vecone\cbc{\sigma(i)=j}.
+				\end{align*}
+			\item Umgekehrt gibt es zu jeder Permutationsmatrix eine Permutation $\sigma$, so da\ss\ $P=P_\sigma$.
+			\item Wenn $P,Q$ Permutationsmatrizen sind, dann ist auch $PQ$ eine Permutationsmatrix.
+			\item Permutationsmatrizen sind orthgonal, also $P^{-1}=P^\trans$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Satz}
+		\begin{itemize}
+			\item Sei $A$ eine invertierbare $n\times n$-Matrix.
+			\item Dann gibt es eine $n\times n$-Permutationsmatrix $P$, so da\ss\ die Matrix $PA$ eine $LU$-Zerlegung besitzt.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Matrix
+				\begin{align*}
+					A=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+				\end{align*}
+				ist invertierbar, besitzt aber keine $LU$-Zerlegung.
+			\item Wenn wir jedoch $A$ mit der Permutationsmatrix
+				\begin{align*}
+					P&=\begin{pmatrix}
+						0&1\\1&0
+					\end{pmatrix}
+				\end{align*}
+				multiplizieren, erhalten wir die Matrix
+				\begin{align*}
+					PA&=\begin{pmatrix}
+						1&0\\0&-1
+					\end{pmatrix}.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Diese besitzt die (triviale) $LU$-Zerlegung
+					\begin{align*}
+						PA&=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}\cdot\begin{pmatrix} 1&0\\0&-1\end{pmatrix}
+					\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{$LU$-Zerlegung und lineare Gleichungssysteme}
+		\begin{itemize}
+			\item Angenommen die invertierbare $n\times n$-Matrix besitzt die $LU$-Zerlegung
+				\begin{align*}
+					A&=L\cdot U.
+				\end{align*}
+			\item Wir m\oe chten diese nutzen, um das Gleichungssystem
+				\begin{align*}
+					Ax&=b
+				\end{align*}
+				zu l\oe sen.
+			\item Dazu l\oe sen wir in zwei Schritten die Gleichungssysteme
+				\begin{align*}
+					Ly&=b&Ux&=y
+				\end{align*}
+			\item Beide sind l\oe sbar, weil $L,U$ invertierbar sind.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Berechnen der $LU$-Zerlegung}
+		\begin{itemize}
+			\item Wie berechnen wir eine $LU$-Zerlegung f\ue r eine gegebene invertierbare Matrix?
+			\item Im Prinzip verwenden wir das Gau\ss sche Eliminationsverfahren aus der Linearen Algebra.
+			\item Die dabei durchgef\ue hrten Pivot-Operationen liefern die Matrizen $L,U$.
+			\item Die Matrix $P$ ergibt sich aus den Zeilenvertauschungen.
+			\item Die Anzahl elementarer Rechenoperationen skaliert als $n^3$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Rekursiver Algorithmus zur Berechnung einer $LU$-Zerlegung}
+		\begin{enumerate}
+			\item Falls $n=1$, gib $P=L=(1)$ und $U=(A)$ aus und stoppe.
+			\item Bestimme eine Permutationsmatrix $P'$, so da\ss
+				\begin{align*}
+					P'A=\begin{pmatrix}a&\alpha^\trans\\\beta&A'\end{pmatrix}
+				\end{align*}
+				wobei $a\in\RR$, $\alpha,\beta\in\RR^{n-1}$, $A'\in\RR^{(n-1)\times(n-1)}$ und
+				\begin{align*}
+					|a|\geq\max\{|\beta_1|,\ldots,|\beta_{n-1}|\}.
+				\end{align*}
+			\item Rekursiv berechne eine $LU$-Zerlegung $P'',L'',U''$ von
+				\begin{align*}
+					A''&=A'-a^{-1}\beta\alpha^\trans.
+				\end{align*}
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Rekursiver Algorithmus zur Berechnung einer $LU$-Zerlegung}
+		\begin{enumerate}
+			\item[4.] Gib die Zerlegung
+				\begin{align*}
+					\begin{pmatrix}1&0\\0&P''\end{pmatrix}P',\quad\begin{pmatrix} 1&0\\a^{-1}P''\beta&L'' \end{pmatrix},\quad\begin{pmatrix} a&\alpha^\trans\\0&U'' \end{pmatrix}
+				\end{align*}
+				aus; d.h.\ wir erhalten die Darstellung
+				\begin{align*}
+					\begin{pmatrix}1&0\\0&P''\end{pmatrix}P'A&=
+				\begin{pmatrix} 1&0\\a^{-1}P''\beta&L'' \end{pmatrix}\begin{pmatrix} a&\alpha^\trans\\0&U'' \end{pmatrix}
+				\end{align*}
+				aus.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Wir berechnen eine $LU$-Zerlegung der Matrix
+				\begin{align*}
+					A&=\begin{pmatrix} 0&2&2\\ 1&2&1\\ 2&1&0 \end{pmatrix}
+				\end{align*}
+			\item Die Permutationsmatrix
+				\begin{align*}
+					P^{(1)}=\begin{pmatrix}
+						0&0&1\\
+						0&1&0\\
+						1&0&0
+					\end{pmatrix}
+				\end{align*}
+				vertasucht die erste und letzte Zeile, d.h.\
+				\begin{align*}
+					P^{(1)}A=\begin{pmatrix} 2&1&0\\ 1&2&1\\ 0&2&2  \end{pmatrix}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Wir subtrahieren nun $\frac{1}{2}$-mal die erste Zeile von der zweiten Zeile, um die Matrix
+				\begin{align*}
+					\begin{pmatrix}
+						2&1&0\\
+						0&\frac{3}{2}&1\\
+						0&2&2
+					\end{pmatrix}
+				\end{align*}
+				zu erhalten.
+			\item Wir fahren fort mit der $LU$-Zerlegung der Matrix
+				\begin{align*}
+				\begin{pmatrix}
+					\frac{3}{2}&1\\2&2
+				\end{pmatrix}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Multiplizieren dieser Matrix mit
+				\begin{align*}
+					P^{(2)}=\begin{pmatrix} 0&1\\1&0 \end{pmatrix}
+				\end{align*}
+				ergibt
+				\begin{align*}
+					P^{(2)}\begin{pmatrix} \frac{3}{2}&1\\2&2 \end{pmatrix}=\begin{pmatrix} 2&2\\\frac{3}{2}&1 \end{pmatrix}
+				\end{align*}
+			\item Wir subtrahieren nun das $3/4$-fache der ersten Zeile von der zweiten Zeile:
+				\begin{align*}
+					\begin{pmatrix}2&2\\0&-\frac{1}{2}\end{pmatrix}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Eine $LU$-Zerlegung der letzten Matrix lautet einfach
+				\begin{align*}
+					\begin{pmatrix} 2&2\\0&-\frac{1}{2} \end{pmatrix}&=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}\begin{pmatrix}2&2\\0&-\frac{1}{2}\end{pmatrix}
+				\end{align*}
+			\item R\ue ckw\ae rts einsetzen ergibt
+				\begin{align*}
+\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix} \frac{3}{2}&1\\2&2 \end{pmatrix}
+=	P^{(2)}\begin{pmatrix} \frac{3}{2}&1\\2&2 \end{pmatrix}=\begin{pmatrix} 2&2\\\frac{3}{2}&1 \end{pmatrix}=\begin{pmatrix} 1&0\\\frac{3}{4}&1 \end{pmatrix}\begin{pmatrix}2&2\\0&-\frac{1}{2}\end{pmatrix}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Somit erhalten wir die Darstellung
+				\begin{align*}
+					\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}\begin{pmatrix} 2&1&0\\ 0&\frac{3}{2}&1\\ 0&2&2 \end{pmatrix}&=\begin{pmatrix}1&0&0\\0&1&0\\0&\frac{3}{4}&1\end{pmatrix}\cdot\begin{pmatrix} 2&1&0\\ 0&2&2\\ 0&0&-\frac{1}{2} \end{pmatrix}
+				\end{align*}
+			\item Ferner haben wir
+				\begin{align*}
+					\begin{pmatrix} 2&1&0\\ 1&2&1\\ 0&2&2  \end{pmatrix}=\begin{pmatrix} 1&0&0\\ \frac{1}{2}&1&0\\ 0&0&1 \end{pmatrix} \begin{pmatrix} 2&1&0\\ 0&\frac{3}{2}&1\\ 0&2&2 \end{pmatrix}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Einsetzen ergibt
+				\begin{align*}
+					\begin{pmatrix} 2&1&0\\ 1&2&1\\ 0&2&2  \end{pmatrix}&=\begin{pmatrix} 1&0&0\\ \frac{1}{2}&1&0\\ 0&0&1 \end{pmatrix}\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}^{-1}\begin{pmatrix}1&0&0\\0&1&0\\0&\frac{3}{4}&1\end{pmatrix}\cdot\begin{pmatrix} 2&1&0\\ 0&2&2\\ 0&0&-\frac{1}{2} \end{pmatrix}\\
+									 &=\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}\begin{pmatrix} 1&0&0\\ 0&1&0\\ \frac{1}{2}&0&1 \end{pmatrix}\begin{pmatrix}1&0&0\\0&1&0\\0&\frac{3}{4}&1\end{pmatrix}\cdot\begin{pmatrix} 2&1&0\\ 0&2&2\\ 0&0&-\frac{1}{2} \end{pmatrix}\\
+									 &=\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}\begin{pmatrix}1&0&0\\0&1&0\\\frac{1}{2}&\frac{3}{4}&1\end{pmatrix}\cdot\begin{pmatrix} 2&1&0\\ 0&2&2\\ 0&0&-\frac{1}{2} \end{pmatrix}	
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Schlie\ss lich erhalten wir
+				\begin{align*}
+					\begin{pmatrix} 0&0&1\\ 0&1&0\\ 1&0&0 \end{pmatrix}\begin{pmatrix} 0&2&2\\ 1&2&1\\ 2&1&0 \end{pmatrix}&=P^{(1)}A=\begin{pmatrix} 2&1&0\\ 1&2&1\\ 0&2&2  \end{pmatrix}\\
+									 &=\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}\begin{pmatrix}1&0&0\\0&1&0\\\frac{1}{2}&\frac{3}{4}&1\end{pmatrix}\cdot\begin{pmatrix} 2&1&0\\ 0&2&2\\ 0&0&-\frac{1}{2} \end{pmatrix},	
+				\end{align*}
+			\item und daher
+				\begin{align*}
+					\begin{pmatrix} 0&2&2\\ 1&2&1\\ 2&1&0 \end{pmatrix}&=\begin{pmatrix} 0&0&1\\ 0&1&0\\ 1&0&0 \end{pmatrix}^{-1}
+\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}\begin{pmatrix}1&0&0\\0&1&0\\\frac{1}{2}&\frac{3}{4}&1\end{pmatrix}\cdot\begin{pmatrix} 2&1&0\\ 0&2&2\\ 0&0&-\frac{1}{2} \end{pmatrix}.	
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Ausmultiplizieren der Permutationsmatrizen gibt
+\begin{align*}
+	\begin{pmatrix} 0&0&1\\ 0&1&0\\ 1&0&0 \end{pmatrix}^{-1}\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}&=
+	\begin{pmatrix} 0&0&1\\ 0&1&0\\ 1&0&0 \end{pmatrix}\begin{pmatrix} 1&0&0\\ 0&0&1\\0&1&0 \end{pmatrix}
+					 =
+	\begin{pmatrix} 0&1&0\\0&0&1\\1&0&0  \end{pmatrix}\\
+				\end{align*}
+			\item Das Inverse dieser Matrix ist
+\begin{align*}
+	\begin{pmatrix} 0&1&0\\0&0&1\\1&0&0  \end{pmatrix}^{-1}=
+	\begin{pmatrix} 0&1&0\\0&0&1\\1&0&0  \end{pmatrix}^{\trans}=
+	\begin{pmatrix} 0&0&1\\1&0&0\\0&1&0  \end{pmatrix}.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Daher erhalten wir das Endergebnis
+\begin{align*}
+	\begin{pmatrix} 0&0&1\\1&0&0\\0&1&0  \end{pmatrix}\begin{pmatrix} 0&2&2\\ 1&2&1\\ 2&1&0 \end{pmatrix}&=
+\begin{pmatrix}1&0&0\\0&1&0\\\frac{1}{2}&\frac{3}{4}&1\end{pmatrix}\cdot\begin{pmatrix} 2&1&0\\ 0&2&2\\ 0&0&-\frac{1}{2} \end{pmatrix}.	
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $A\in\RR^{m\times n}$ eine $m\times n$-Matrix.
+			\item Wir definieren die \emph{Norm} von $A$ als
+				\begin{align*}
+					\|A\|=\sup\cbc{\frac{x^\trans Ay}{\|x\|\cdot\|y\|}:x\in\RR^m\setminus\cbc 0,y\in\RR^n\setminus\cbc0}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition}
+		\begin{itemize}
+			\item Wenn $A\in\RR^{n\times n}$ symmetrisch ist und $\lambda_1\leq\cdots\leq\lambda_n$ die Eigenwerte von $A$ sind, dann gilt
+				\begin{align*}
+					\|A\|=\max\cbc{-\lambda_1,\lambda_n}.
+				\end{align*}
+			\item Wenn $A$ eine orthgonale Matrix ist, gilt $\|A\|=1$.
+			\item F\ue r eine allgemeine $m\times n$-Matrix $A$ mit Singul\ae rwerten $\sigma_1,\ldots,\sigma_\ell>0$ gilt
+				\begin{align*}
+					\|A\|=\max\{\sigma_1,\ldots,\sigma_\ell\}.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die symmetrische Matrix
+				\begin{align*}
+					A&=\begin{pmatrix} -2&-1\\-1&-2 \end{pmatrix}
+				\end{align*}
+				hat das characteristische Polynom
+				\begin{align*}
+					\det(A-X\id)=\det\begin{pmatrix} -2-X&-1\\-1&-2-X \end{pmatrix}=X^2-4X+3.
+				\end{align*}
+			\item Nullstellen dieses Polynoms und damit Eigenwerte von $A$ sind $-1,-3$.
+			\item Also gilt
+				\begin{align*}
+				\|A\|=3.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Rechenregeln f\ue r die Matrixnorm}
+		\begin{itemize}
+			\item Es gilt $\|A\|=0$ genau dann, wenn $A=0$.
+			\item F\ue r jede Zahl $c\in\RR$ gilt
+				\begin{align*}
+				\|cA\|=|c|\cdot\|A\|.
+				\end{align*}
+			\item Es gilt $\|A+B\|\leq\|A\|+\|B\|$.
+			\item Es gilt $\|A\cdot C\|\leq\|A\|\cdot\|C\|$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Konditionsanalyse linearer Gleichungssysteme}
+		\begin{itemize}
+			\item Die normweise Kondition eines linearen Gleichungssystems $Ax=b$ ist gegeben durch
+				\begin{align*}
+					\hat\kappa=\|A^{-1}\|\frac{\|Ax\|}{\|x\|}\leq\|A^{-1}\|\cdot\|A\|.
+				\end{align*}
+			\item Wenn $A$ symmetrisch ist, dann ist die rechte Seite das Verh\ae ltnis des betragsgr\oe\ss ten und des betragskleinsten Eigenwertes.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zusammenfassung}
+		\begin{itemize}
+			\item Die $LU$-Zerlegung ist ein praktisches Hilfsmittel zum L\oe sen linearer Gleichungssysteme.
+			\item Wir haben ein Rechenschema zum Bestimmen der Zerlegung kennengelernt.
+			\item Die Konditionsanalyse linearer Gleichungssysteme erfolgt mit Hilfe der Matrixnorm.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\end{document}

@@ -1,0 +1,518 @@
+\documentclass{beamer}
+\usepackage{amsmath,graphics}
+\usepackage{amssymb}
+
+\usetheme{default}
+\usepackage{xcolor}
+
+\definecolor{solarizedBase03}{HTML}{002B36}
+\definecolor{solarizedBase02}{HTML}{073642}
+\definecolor{solarizedBase01}{HTML}{586e75}
+\definecolor{solarizedBase00}{HTML}{657b83}
+\definecolor{solarizedBase0}{HTML}{839496}
+\definecolor{solarizedBase1}{HTML}{93a1a1}
+\definecolor{solarizedBase2}{HTML}{EEE8D5}
+\definecolor{solarizedBase3}{HTML}{FDF6E3}
+\definecolor{solarizedYellow}{HTML}{B58900}
+\definecolor{solarizedOrange}{HTML}{CB4B16}
+\definecolor{solarizedRed}{HTML}{DC322F}
+\definecolor{solarizedMagenta}{HTML}{D33682}
+\definecolor{solarizedViolet}{HTML}{6C71C4}
+%\definecolor{solarizedBlue}{HTML}{268BD2}
+\definecolor{solarizedBlue}{HTML}{134676}
+\definecolor{solarizedCyan}{HTML}{2AA198}
+\definecolor{solarizedGreen}{HTML}{859900}
+\definecolor{myBlue}{HTML}{162DB0}%{261CA4}
+\setbeamercolor*{item}{fg=myBlue}
+\setbeamercolor{normal text}{fg=solarizedBase03, bg=solarizedBase3}
+\setbeamercolor{alerted text}{fg=myBlue}
+\setbeamercolor{example text}{fg=myBlue, bg=solarizedBase3}
+\setbeamercolor*{frametitle}{fg=solarizedRed}
+\setbeamercolor*{title}{fg=solarizedRed}
+\setbeamercolor{block title}{fg=myBlue, bg=solarizedBase3}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\beamertemplatenavigationsymbolsempty
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+\usepackage{fourier}
+
+\def\vec#1{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+{\mbox{\boldmath$\textstyle#1$}}
+{\mbox{\boldmath$\scriptstyle#1$}}
+{\mbox{\boldmath$\scriptscriptstyle#1$}}}
+\definecolor{OwnGrey}{rgb}{0.560,0.000,0.000} % #999999
+\definecolor{OwnBlue}{rgb}{0.121,0.398,0.711} % #1f64b0
+\definecolor{red4}{rgb}{0.5,0,0}
+\definecolor{blue4}{rgb}{0,0,0.5}
+\definecolor{Blue}{rgb}{0,0,0.66}
+\definecolor{LightBlue}{rgb}{0.9,0.9,1}
+\definecolor{Green}{rgb}{0,0.5,0}
+\definecolor{LightGreen}{rgb}{0.9,1,0.9}
+\definecolor{Red}{rgb}{0.9,0,0}
+\definecolor{LightRed}{rgb}{1,0.9,0.9}
+\definecolor{White}{gray}{1}
+\definecolor{Black}{gray}{0}
+\definecolor{LightGray}{gray}{0.8}
+\definecolor{Orange}{rgb}{0.1,0.2,1}
+\setbeamerfont{sidebar right}{size=\scriptsize}
+\setbeamercolor{sidebar right}{fg=Black}
+
+\renewcommand{\emph}[1]{{\textcolor{solarizedRed}{\itshape #1}}}
+
+\newcommand\tay{T}
+\newcommand\dd{\mathrm d}
+\newcommand\eul{\mathrm e}
+
+\newcommand\cA{\mathcal A}
+\newcommand\cB{\mathcal B}
+\newcommand\cC{\mathcal C}
+\newcommand\cD{\mathcal D}
+\newcommand\cE{\mathcal E}
+\newcommand\cF{\mathcal F}
+\newcommand\cG{\mathcal G}
+\newcommand\cH{\mathcal H}
+\newcommand\cI{\mathcal I}
+\newcommand\cJ{\mathcal J}
+\newcommand\cK{\mathcal K}
+\newcommand\cL{\mathcal L}
+\newcommand\cM{\mathcal M}
+\newcommand\cN{\mathcal N}
+\newcommand\cO{\mathcal O}
+\newcommand\cP{\mathcal P}
+\newcommand\cQ{\mathcal Q}
+\newcommand\cR{\mathcal R}
+\newcommand\cS{\mathcal S}
+\newcommand\cT{\mathcal T}
+\newcommand\cU{\mathcal U}
+\newcommand\cV{\mathcal V}
+\newcommand\cW{\mathcal W}
+\newcommand\cX{\mathcal X}
+\newcommand\cY{\mathcal Y}
+\newcommand\cZ{\mathcal Z}
+
+\newcommand\fA{\mathfrak A}
+\newcommand\fB{\mathfrak B}
+\newcommand\fC{\mathfrak C}
+\newcommand\fD{\mathfrak D}
+\newcommand\fE{\mathfrak E}
+\newcommand\fF{\mathfrak F}
+\newcommand\fG{\mathfrak G}
+\newcommand\fH{\mathfrak H}
+\newcommand\fI{\mathfrak I}
+\newcommand\fJ{\mathfrak J}
+\newcommand\fK{\mathfrak K}
+\newcommand\fL{\mathfrak L}
+\newcommand\fM{\mathfrak M}
+\newcommand\fN{\mathfrak N}
+\newcommand\fO{\mathfrak O}
+\newcommand\fP{\mathfrak P}
+\newcommand\fQ{\mathfrak Q}
+\newcommand\fR{\mathfrak R}
+\newcommand\fS{\mathfrak S}
+\newcommand\fT{\mathfrak T}
+\newcommand\fU{\mathfrak U}
+\newcommand\fV{\mathfrak V}
+\newcommand\fW{\mathfrak W}
+\newcommand\fX{\mathfrak X}
+\newcommand\fY{\mathfrak Y}
+\newcommand\fZ{\mathfrak Z}
+
+\newcommand\fa{\mathfrak a}
+\newcommand\fb{\mathfrak b}
+\newcommand\fc{\mathfrak c}
+\newcommand\fd{\mathfrak d}
+\newcommand\fe{\mathfrak e}
+\newcommand\ff{\mathfrak f}
+\newcommand\fg{\mathfrak g}
+\newcommand\fh{\mathfrak h}
+%\newcommand\fi{\mathfrak i}
+\newcommand\fj{\mathfrak j}
+\newcommand\fk{\mathfrak k}
+\newcommand\fl{\mathfrak l}
+\newcommand\fm{\mathfrak m}
+\newcommand\fn{\mathfrak n}
+\newcommand\fo{\mathfrak o}
+\newcommand\fp{\mathfrak p}
+\newcommand\fq{\mathfrak q}
+\newcommand\fr{\mathfrak r}
+\newcommand\fs{\mathfrak s}
+\newcommand\ft{\mathfrak t}
+\newcommand\fu{\mathfrak u}
+\newcommand\fv{\mathfrak v}
+\newcommand\fw{\mathfrak w}
+\newcommand\fx{\mathfrak x}
+\newcommand\fy{\mathfrak y}
+\newcommand\fz{\mathfrak z}
+
+\newcommand\vA{\vec A}
+\newcommand\vB{\vec B}
+\newcommand\vC{\vec C}
+\newcommand\vD{\vec D}
+\newcommand\vE{\vec E}
+\newcommand\vF{\vec F}
+\newcommand\vG{\vec G}
+\newcommand\vH{\vec H}
+\newcommand\vI{\vec I}
+\newcommand\vJ{\vec J}
+\newcommand\vK{\vec K}
+\newcommand\vL{\vec L}
+\newcommand\vM{\vec M}
+\newcommand\vN{\vec N}
+\newcommand\vO{\vec O}
+\newcommand\vP{\vec P}
+\newcommand\vQ{\vec Q}
+\newcommand\vR{\vec R}
+\newcommand\vS{\vec S}
+\newcommand\vT{\vec T}
+\newcommand\vU{\vec U}
+\newcommand\vV{\vec V}
+\newcommand\vW{\vec W}
+\newcommand\vX{\vec X}
+\newcommand\vY{\vec Y}
+\newcommand\vZ{\vec Z}
+
+\newcommand\va{\vec a}
+\newcommand\vb{\vec b}
+\newcommand\vc{\vec c}
+\newcommand\vd{\vec d}
+\newcommand\ve{\vec e}
+\newcommand\vf{\vec f}
+\newcommand\vg{\vec g}
+\newcommand\vh{\vec h}
+\newcommand\vi{\vec i}
+\newcommand\vj{\vec j}
+\newcommand\vk{\vec k}
+\newcommand\vl{\vec l}
+\newcommand\vm{\vec m}
+\newcommand\vn{\vec n}
+\newcommand\vo{\vec o}
+\newcommand\vp{\vec p}
+\newcommand\vq{\vec q}
+\newcommand\vr{\vec r}
+\newcommand\vs{\vec s}
+\newcommand\vt{\vec t}
+\newcommand\vu{\vec u}
+\newcommand\vv{\vec v}
+\newcommand\vw{\vec w}
+\newcommand\vx{\vec x}
+\newcommand\vy{\vec y}
+\newcommand\vz{\vec z}
+
+\renewcommand\AA{\mathbb A}
+\newcommand\NN{\mathbb N}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\PP{\mathbb P}
+\newcommand\QQ{\mathbb Q}
+\newcommand\RR{\mathbb R}
+\newcommand\RRpos{\mathbb R_{\geq0}}
+\renewcommand\SS{\mathbb S}
+\newcommand\CC{\mathbb C}
+
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\pr}{\mathrm{P}}
+\newcommand{\Vol}{\mathrm{vol}}
+\newcommand\norm[1]{\left\|{#1}\right\|} 
+\newcommand\sign{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand\bc[1]{\left({#1}\right)} 
+\newcommand\cbc[1]{\left\{{#1}\right\}} 
+\newcommand\bcfr[2]{\bc{\frac{#1}{#2}}} 
+\newcommand{\bck}[1]{\left\langle{#1}\right\rangle} 
+\newcommand\brk[1]{\left\lbrack{#1}\right\rbrack} 
+\newcommand\scal[2]{\bck{{#1},{#2}}} 
+\newcommand{\vecone}{\mathbb{1}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\ggt}{\mathrm{ggT}}
+\newcommand{\kgv}{\mathrm{kgV}}
+\newcommand{\trans}{\top}
+
+\newcommand{\Karonski}{Karo\'nski}
+\newcommand{\Erdos}{Erd\H{o}s}
+\newcommand{\Renyi}{R\'enyi}
+\newcommand{\Lovasz}{Lov\'asz}
+\newcommand{\Juhasz}{Juh\'asz}
+\newcommand{\Bollobas}{Bollob\'as}
+\newcommand{\Furedi}{F\"uredi}
+\newcommand{\Komlos}{Koml\'os}
+\newcommand{\Luczak}{\L uczak}
+\newcommand{\Kucera}{Ku\v{c}era}
+\newcommand{\Szemeredi}{Szemer\'edi}
+
+\renewcommand{\ae}{\"a}
+\renewcommand{\oe}{\"o}
+\newcommand{\ue}{\"u}
+\newcommand{\Ae}{\"A}
+\newcommand{\Oe}{\"O}
+\newcommand{\Ue}{\"U}
+
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\rrk}{\mathrm{zrg}}
+\newcommand{\crk}{\mathrm{srg}}
+\newcommand{\rk}{\mathrm{rg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\nul}{\mathrm{nul}}
+\newcommand{\eig}{\mathrm{eig}}
+
+\newcommand{\mytitle}{Anwendung: zuf\"alliges 3-SAT}
+
+\title[Annuma]{\mytitle}
+\author[Amin Coja-Oghlan]{Amin Coja-Oghlan}
+\institute[Frankfurt]{JWGUFFM}
+\date{}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Das 3-SAT-Problem}
+		\begin{itemize}
+			\item Das aussagenlogische Erf\"ullbarkeitsproblem spielt eine zentrale Rolle in der Informatik:
+			\begin{itemize}
+			\item Komlexit\"atstheorie
+			\item Datenbanken
+			\item {\em model checking}
+			\end{itemize}
+\item Ein besonders wichtiger Spezialfall ist das 3-SAT-Problem.
+\item Gegeben ist hierbei eine aussagenlogische Formel \"uber Booleschen Variablen $x_1,\ldots,x_n$ in \emph{konjuktiver Normalform}
+		\begin{align*}
+			\Phi&=C_1\wedge C_2\wedge\cdots\wedge C_m&&\mbox{mit Klauseln}\\
+			C_i&=\ell_{i1}\vee\ell_{i2}\vee\ell_{i3}&&\mbox{aus Literalen}\\
+			\ell_{ij}&\in\cbc{x_1,\neg x_1,x_2,\neg x_2,\ldots,x_n,\neg x_n}.
+		\end{align*}
+		\item Die Aufgabe ist, die Variablen $x_1,\ldots,x_n$ mit Wahrheitswerten zu belegen, so da\ss\ die Formel insgesamt erf\"ullt ist.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Gegeben sei die Formel
+				\begin{align*}
+					\Phi&=\bc{x_1\vee\neg x_2\vee x_3}\wedge\bc{\neg x_1\vee\neg x_2\vee\neg x_3}\wedge\bc{x_1\vee x_2\vee\neg x_3}\\&\quad\wedge\bc{\neg x_1\vee x_2\vee x_3}\wedge\bc{\neg x_1\vee \neg x_2\vee x_3}
+				\end{align*}
+			\item Wir repr\"asentieren die Wahrheitswerte durch $0$ und $1$.
+			\item Die Belegung
+				\begin{align*}
+					x_1&=1&x_2&=0&x_3=1
+				\end{align*}
+				erf\"ullt die Formel.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Algoritmen f\"ur 3-SAT}
+		\begin{itemize}
+			\item Das 3-SAT-Problem ist \alert{NP-schwer}.
+			\item Es ist also kein effizienter Algorithmus bekannt, der das Problem jedenfalls l\"ost.
+			\item Dennoch tritt das Problem in der Praxis st\"andig auf.
+			\item Daher wurden verschiedene Heuristiken entwickelt.
+			\item Eine solche Heuristik wird \alert{Unit Clause Propagation} (``UCP'') genannt.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Algorithmus UCP}
+		\alert{Eingabe:} eine 3-SAT-Formel $\Phi$.
+		\begin{enumerate}
+			\item Solange noch nicht alle Variablen belegt sind
+			\item $\qquad$pr\"ufe, ob eine unerf\"ullte Klausel der L\"ange 1 hat
+			\item $\qquad$falls ja, erf\"ulle eine solche Klausel
+			\item $\qquad$sonst w\"ahle eine unbelegte Variable aus\dots 
+			\item $\qquad$\dots und weise ihr einen zuf\"alligen Wert zu.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Wir betrachten die Formel
+				\begin{align*}
+					\Phi&=\bc{x_1\vee\neg x_2\vee x_3}\wedge\bc{\neg x_1\vee\neg x_2\vee\neg x_3}\wedge\bc{x_1\vee x_2\vee\neg x_3}\\&\quad\wedge\bc{\neg x_1\vee x_2\vee x_3}\wedge\bc{\neg x_1\vee \neg x_2\vee x_3}
+				\end{align*}
+			\item Anfangs haben alle Klauseln die L\"ange 3.
+			\item Wir w\"ahlen also eine Variable zuf\"allig, z.B.\ $x_1$, und weisen ihr einen zuf\"alligen Wert zu: $x_1=1$.
+			\item Die erste und dritte Klausel sind jetzt erf\"ullt.
+			\item Es verbleibt die Restformel
+				\begin{align*}
+					\bc{\neg x_2\vee\neg x_3}\wedge\bc{x_2\vee x_3}\wedge\bc{\neg x_2\vee x_3}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Da keine Klausel L\"ange 1 hat, w\"ahlen wir eine Variable zuf\"allig und weisen ihr einen zuf\"alligen Wert zu.
+			\item Sagen wir $x_2=1$.
+			\item Jetzt verbleit die Restformel
+				\begin{align*}
+					\bc{\neg x_3}\wedge\bc{x_3}
+				\end{align*}
+			\item Zwei der Klauseln haben L\"ange 1.
+			\item Wir w\"ahlen die erste und erf\"ullen sie, indem wir $x_3=0$ setzen.
+			\item Es verbleibt eine unerf\"ullte \alert{leere Klausel}.
+			\item UCP schl\"agt also fehl.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zuf\"alliges 3-SAT}
+		\begin{itemize}
+			\item Zuf\"allig erzeugte 3-SAT-Formeln sind ein n\"utzlicher Benchmark.
+			\item Dabei w\"ahlen wir die Klauseln der Formel $\Phi$ unabh\"angig voneinander zuf\"allig unter den $8n^3$ m\"oglichen Klauseln auf den Variablen
+				\begin{align*}
+				x_1,x_2,\ldots,x_n
+				\end{align*}
+				aus.
+			\item Je gr\"o\ss er die Zahl $m$ der Klauseln ist, desto schwieriger wird es, eine erf\"ullende Belegung zu finden.
+			\item \alert{Bis zu welcher Klauselzahl $m$ funktioniert UCP?}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Kombinatorische Beobachtung}
+		\begin{itemize}
+			\item Wende UCP auf eine zuf\"allige Formel an.
+			\item Dann ist die \alert{Restformel} nach $t$ Belegungen zuf\"allig gegeben
+				\begin{itemize}
+				\item die Menge der unbelegten Variablen
+				\item die Zahlen $$m_1(t),m_2(t),m_3(t)$$ 
+					der verbleibenden Klauseln der L\"angen $1,2,3$.
+				\end{itemize}
+			\item Deshalb reicht es aus, $m_1(t),m_2(t),m_3(t)$ zu analysieren.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Erwartete Ver\"anderung}
+		\begin{itemize}
+			\item Mit $t$ bezeichnen wir die Anzahl der bereits gesetzen Variablen.
+			\item Dann erhalten wir f\"ur die erwartete Ver\"anderung der Klauseln der L\"ange drei:
+				\begin{align*}
+					\Delta m_3(t)&=-\frac{3m_3(t)}{n-t}&&m_3(0)=m
+				\end{align*}
+			\item \alert{Erkl\"arung:} in jedem Schritt wird eine zuf\"allige Variable gesetzt
+			\item Eine bestimmte 3-Klausel wird daher mit Wahrscheinlichkeit $3/(n-t)$ getroffen.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Erwartete Ver\"anderung (fortgesetzt)}
+		\begin{itemize}
+			\item Analog bestimmen wir die erwartete Ver\"anderung der Klauseln der L\"ange zwei:
+				\begin{align*}
+					\Delta m_2(t)&=\frac{3m_3(t)}{2(n-t)}-\frac{2m_2(t)}{n-t}&&m_2(0)=0
+				\end{align*}
+			\item \alert{Erkl\"arung:} eine getroffene 3-Klausel wird entweder zur 2-Klausel oder sie wird durch den eingesetzen Wert erf\"ullt.
+			\item Eine bestimmte 2-Klausel wird wie oben mit Wahrscheinlichkeit $2/(n-t)$ getroffen.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Differentialgleichungen}
+		\begin{itemize}
+			\item Der UCP-Proze\ss\ ist eigentlich diskret.
+			\item Aber im Grenzwert $n\to\infty$ k\"onnen wir $m_3(t)/n$ und $m_2(t)/n$ durch kontinuierliche Gr\"o\ss en $f_3,f_2$ ann\"ahern.
+			\item Wir setzen ferner 
+				\begin{align*}
+					x&=\frac{t}{n}&&\mbox{und}\\
+					r&=\frac{m}{n}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Differentialgleichungen (fortgesetzt)}
+		\begin{itemize}
+		\item Aus den Gleichungen
+				\begin{align*}
+					\Delta m_3(t)&=-\frac{3m_3(t)}{n-t}&m_3(0)&=m\\
+					\Delta m_2(t)&=\frac{3m_3(t)}{2(n-t)}-\frac{2m_2(t)}{n-t}&m_2(0)&=0
+				\end{align*}
+				werden dann Differentialgleichungen
+				\begin{align*}
+					\frac{\dd f_3(x)}{\dd x}&=-\frac{3f_3(x)}{1-x}&f_3(0)&=r\\
+					\frac{\dd f_2(x)}{\dd x}&=\frac{3f_3(x)}{2(1-x)}-\frac{2f_2(x)}{1-x}&f_2(0)&=0
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{L\"osen der Differentialgleichungen}
+		\begin{itemize}
+		\item Diese Differentialgleichungen besitzen die L\"osung
+			\begin{align*}
+				f_3(x)&=r(1-x)^3\\
+				f_2(x)&=\frac{3}{2}rx(1-x)^2
+			\end{align*}
+		\item Was lernen wir daraus f\"ur UCP?
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Unit Clauses}
+		\begin{itemize}
+		\item Der UCP-Algorithmus ``l\"ost'' 1-Klauseln sofort wenn sie entstehen.
+		\item Solange diese also mit einer Rate von weniger als 1 Klausel pro Zeitschritt produziert werden, werden kaum Widerspr\"uche entstehen.
+		\item \"Ahnlich wie oben entstehen $1$-Klauseln mit Rate
+			\begin{align*}
+				\Delta m_1(t)&=\frac{2m_2(t)}{2(n-t)}=\frac{m_2(t)}{n-t}.
+			\end{align*}
+		\item \alert{Erkl\"arung:} eine getroffene $2$-Klausel wird entweder sofort erf\"ullt oder wird zur 1-Klausel.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Unit Clauses (fortgesetzt)}
+		\begin{itemize}
+		\item Wenn wir diese Gleichung reskalieren, erhalten wir die Bedingung
+			\begin{align*}
+				\frac{f_2(x)}{1-x}<1&&\mbox{f\"ur alle }x\in(0,1)
+			\end{align*}
+			oder
+			\begin{align*}
+				f_2(x)=\frac{3}{2}rx(1-x)^2<1-x&&\mbox{f\"ur alle }x\in(0,1).
+			\end{align*}
+		\item Diese Ungleichung ist genau dann erf\"ullt, wenn
+			\begin{align*}
+				r<\frac{8}{3}\quad\mbox{also}\quad m<\frac{8}{3}n.
+			\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zusammenfassung}
+		\begin{itemize}
+			\item Wir haben eine Anwendung von Differentialgleichungen in der Analyse von Algorithmen gesehen.
+			\item Die Analyse des UCP-Algorithmus f\"uhrte auf ein System von Differentialgleichungen.
+			\item An der L\"osung konnten wir Ablesen, bis zu welcher Klauseldichte das Verfahren funktioniert.
+			\item \alert{Quelle:} D.~Achlioptas: Theoretical Computer Science {\bf265} (2001) 159--185.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\end{document}

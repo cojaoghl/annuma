@@ -1,0 +1,562 @@
+\documentclass{beamer}
+\usepackage{amsmath,graphics}
+\usepackage{amssymb}
+
+\usetheme{default}
+\usepackage{xcolor}
+
+\definecolor{solarizedBase03}{HTML}{002B36}
+\definecolor{solarizedBase02}{HTML}{073642}
+\definecolor{solarizedBase01}{HTML}{586e75}
+\definecolor{solarizedBase00}{HTML}{657b83}
+\definecolor{solarizedBase0}{HTML}{839496}
+\definecolor{solarizedBase1}{HTML}{93a1a1}
+\definecolor{solarizedBase2}{HTML}{EEE8D5}
+\definecolor{solarizedBase3}{HTML}{FDF6E3}
+\definecolor{solarizedYellow}{HTML}{B58900}
+\definecolor{solarizedOrange}{HTML}{CB4B16}
+\definecolor{solarizedRed}{HTML}{DC322F}
+\definecolor{solarizedMagenta}{HTML}{D33682}
+\definecolor{solarizedViolet}{HTML}{6C71C4}
+%\definecolor{solarizedBlue}{HTML}{268BD2}
+\definecolor{solarizedBlue}{HTML}{134676}
+\definecolor{solarizedCyan}{HTML}{2AA198}
+\definecolor{solarizedGreen}{HTML}{859900}
+\definecolor{myBlue}{HTML}{162DB0}%{261CA4}
+\setbeamercolor*{item}{fg=myBlue}
+\setbeamercolor{normal text}{fg=solarizedBase03, bg=solarizedBase3}
+\setbeamercolor{alerted text}{fg=myBlue}
+\setbeamercolor{example text}{fg=myBlue, bg=solarizedBase3}
+\setbeamercolor*{frametitle}{fg=solarizedRed}
+\setbeamercolor*{title}{fg=solarizedRed}
+\setbeamercolor{block title}{fg=myBlue, bg=solarizedBase3}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\beamertemplatenavigationsymbolsempty
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+\usepackage{fourier}
+
+\def\vec#1{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+{\mbox{\boldmath$\textstyle#1$}}
+{\mbox{\boldmath$\scriptstyle#1$}}
+{\mbox{\boldmath$\scriptscriptstyle#1$}}}
+\definecolor{OwnGrey}{rgb}{0.560,0.000,0.000} % #999999
+\definecolor{OwnBlue}{rgb}{0.121,0.398,0.711} % #1f64b0
+\definecolor{red4}{rgb}{0.5,0,0}
+\definecolor{blue4}{rgb}{0,0,0.5}
+\definecolor{Blue}{rgb}{0,0,0.66}
+\definecolor{LightBlue}{rgb}{0.9,0.9,1}
+\definecolor{Green}{rgb}{0,0.5,0}
+\definecolor{LightGreen}{rgb}{0.9,1,0.9}
+\definecolor{Red}{rgb}{0.9,0,0}
+\definecolor{LightRed}{rgb}{1,0.9,0.9}
+\definecolor{White}{gray}{1}
+\definecolor{Black}{gray}{0}
+\definecolor{LightGray}{gray}{0.8}
+\definecolor{Orange}{rgb}{0.1,0.2,1}
+\setbeamerfont{sidebar right}{size=\scriptsize}
+\setbeamercolor{sidebar right}{fg=Black}
+
+\renewcommand{\emph}[1]{{\textcolor{solarizedRed}{\itshape #1}}}
+
+\newcommand\tay{T}
+\newcommand\dd{\mathrm d}
+\newcommand\eul{\mathrm e}
+
+\newcommand\cA{\mathcal A}
+\newcommand\cB{\mathcal B}
+\newcommand\cC{\mathcal C}
+\newcommand\cD{\mathcal D}
+\newcommand\cE{\mathcal E}
+\newcommand\cF{\mathcal F}
+\newcommand\cG{\mathcal G}
+\newcommand\cH{\mathcal H}
+\newcommand\cI{\mathcal I}
+\newcommand\cJ{\mathcal J}
+\newcommand\cK{\mathcal K}
+\newcommand\cL{\mathcal L}
+\newcommand\cM{\mathcal M}
+\newcommand\cN{\mathcal N}
+\newcommand\cO{\mathcal O}
+\newcommand\cP{\mathcal P}
+\newcommand\cQ{\mathcal Q}
+\newcommand\cR{\mathcal R}
+\newcommand\cS{\mathcal S}
+\newcommand\cT{\mathcal T}
+\newcommand\cU{\mathcal U}
+\newcommand\cV{\mathcal V}
+\newcommand\cW{\mathcal W}
+\newcommand\cX{\mathcal X}
+\newcommand\cY{\mathcal Y}
+\newcommand\cZ{\mathcal Z}
+
+\newcommand\fA{\mathfrak A}
+\newcommand\fB{\mathfrak B}
+\newcommand\fC{\mathfrak C}
+\newcommand\fD{\mathfrak D}
+\newcommand\fE{\mathfrak E}
+\newcommand\fF{\mathfrak F}
+\newcommand\fG{\mathfrak G}
+\newcommand\fH{\mathfrak H}
+\newcommand\fI{\mathfrak I}
+\newcommand\fJ{\mathfrak J}
+\newcommand\fK{\mathfrak K}
+\newcommand\fL{\mathfrak L}
+\newcommand\fM{\mathfrak M}
+\newcommand\fN{\mathfrak N}
+\newcommand\fO{\mathfrak O}
+\newcommand\fP{\mathfrak P}
+\newcommand\fQ{\mathfrak Q}
+\newcommand\fR{\mathfrak R}
+\newcommand\fS{\mathfrak S}
+\newcommand\fT{\mathfrak T}
+\newcommand\fU{\mathfrak U}
+\newcommand\fV{\mathfrak V}
+\newcommand\fW{\mathfrak W}
+\newcommand\fX{\mathfrak X}
+\newcommand\fY{\mathfrak Y}
+\newcommand\fZ{\mathfrak Z}
+
+\newcommand\fa{\mathfrak a}
+\newcommand\fb{\mathfrak b}
+\newcommand\fc{\mathfrak c}
+\newcommand\fd{\mathfrak d}
+\newcommand\fe{\mathfrak e}
+\newcommand\ff{\mathfrak f}
+\newcommand\fg{\mathfrak g}
+\newcommand\fh{\mathfrak h}
+%\newcommand\fi{\mathfrak i}
+\newcommand\fj{\mathfrak j}
+\newcommand\fk{\mathfrak k}
+\newcommand\fl{\mathfrak l}
+\newcommand\fm{\mathfrak m}
+\newcommand\fn{\mathfrak n}
+\newcommand\fo{\mathfrak o}
+\newcommand\fp{\mathfrak p}
+\newcommand\fq{\mathfrak q}
+\newcommand\fr{\mathfrak r}
+\newcommand\fs{\mathfrak s}
+\newcommand\ft{\mathfrak t}
+\newcommand\fu{\mathfrak u}
+\newcommand\fv{\mathfrak v}
+\newcommand\fw{\mathfrak w}
+\newcommand\fx{\mathfrak x}
+\newcommand\fy{\mathfrak y}
+\newcommand\fz{\mathfrak z}
+
+\newcommand\vA{\vec A}
+\newcommand\vB{\vec B}
+\newcommand\vC{\vec C}
+\newcommand\vD{\vec D}
+\newcommand\vE{\vec E}
+\newcommand\vF{\vec F}
+\newcommand\vG{\vec G}
+\newcommand\vH{\vec H}
+\newcommand\vI{\vec I}
+\newcommand\vJ{\vec J}
+\newcommand\vK{\vec K}
+\newcommand\vL{\vec L}
+\newcommand\vM{\vec M}
+\newcommand\vN{\vec N}
+\newcommand\vO{\vec O}
+\newcommand\vP{\vec P}
+\newcommand\vQ{\vec Q}
+\newcommand\vR{\vec R}
+\newcommand\vS{\vec S}
+\newcommand\vT{\vec T}
+\newcommand\vU{\vec U}
+\newcommand\vV{\vec V}
+\newcommand\vW{\vec W}
+\newcommand\vX{\vec X}
+\newcommand\vY{\vec Y}
+\newcommand\vZ{\vec Z}
+
+\newcommand\va{\vec a}
+\newcommand\vb{\vec b}
+\newcommand\vc{\vec c}
+\newcommand\vd{\vec d}
+\newcommand\ve{\vec e}
+\newcommand\vf{\vec f}
+\newcommand\vg{\vec g}
+\newcommand\vh{\vec h}
+\newcommand\vi{\vec i}
+\newcommand\vj{\vec j}
+\newcommand\vk{\vec k}
+\newcommand\vl{\vec l}
+\newcommand\vm{\vec m}
+\newcommand\vn{\vec n}
+\newcommand\vo{\vec o}
+\newcommand\vp{\vec p}
+\newcommand\vq{\vec q}
+\newcommand\vr{\vec r}
+\newcommand\vs{\vec s}
+\newcommand\vt{\vec t}
+\newcommand\vu{\vec u}
+\newcommand\vv{\vec v}
+\newcommand\vw{\vec w}
+\newcommand\vx{\vec x}
+\newcommand\vy{\vec y}
+\newcommand\vz{\vec z}
+
+\renewcommand\AA{\mathbb A}
+\newcommand\NN{\mathbb N}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\PP{\mathbb P}
+\newcommand\QQ{\mathbb Q}
+\newcommand\RR{\mathbb R}
+\newcommand\RRpos{\mathbb R_{\geq0}}
+\renewcommand\SS{\mathbb S}
+\newcommand\CC{\mathbb C}
+
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\pr}{\mathrm{P}}
+\newcommand{\Vol}{\mathrm{vol}}
+\newcommand\norm[1]{\left\|{#1}\right\|} 
+\newcommand\sign{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand\bc[1]{\left({#1}\right)} 
+\newcommand\cbc[1]{\left\{{#1}\right\}} 
+\newcommand\bcfr[2]{\bc{\frac{#1}{#2}}} 
+\newcommand{\bck}[1]{\left\langle{#1}\right\rangle} 
+\newcommand\brk[1]{\left\lbrack{#1}\right\rbrack} 
+\newcommand\scal[2]{\bck{{#1},{#2}}} 
+\newcommand{\vecone}{\mathbb{1}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\ggt}{\mathrm{ggT}}
+\newcommand{\kgv}{\mathrm{kgV}}
+\newcommand{\trans}{\top}
+
+\newcommand{\Karonski}{Karo\'nski}
+\newcommand{\Erdos}{Erd\H{o}s}
+\newcommand{\Renyi}{R\'enyi}
+\newcommand{\Lovasz}{Lov\'asz}
+\newcommand{\Juhasz}{Juh\'asz}
+\newcommand{\Bollobas}{Bollob\'as}
+\newcommand{\Furedi}{F\"uredi}
+\newcommand{\Komlos}{Koml\'os}
+\newcommand{\Luczak}{\L uczak}
+\newcommand{\Kucera}{Ku\v{c}era}
+\newcommand{\Szemeredi}{Szemer\'edi}
+
+\renewcommand{\ae}{\"a}
+\renewcommand{\oe}{\"o}
+\newcommand{\ue}{\"u}
+\newcommand{\Ae}{\"A}
+\newcommand{\Oe}{\"O}
+\newcommand{\Ue}{\"U}
+
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\rrk}{\mathrm{zrg}}
+\newcommand{\crk}{\mathrm{srg}}
+\newcommand{\rk}{\mathrm{rg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\nul}{\mathrm{nul}}
+\newcommand{\eig}{\mathrm{eig}}
+
+\newcommand{\mytitle}{Differentialgleichungen}
+
+\title[Annuma]{\mytitle}
+\author[Amin Coja-Oghlan]{Amin Coja-Oghlan}
+\institute[Frankfurt]{JWGUFFM}
+\date{}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Worum geht es?}
+		\begin{itemize}
+			\item Differentialgleichungen dr\ue cken Zusammenh\ae nge zwischen den Ableitungen einer Funktion aus.
+			\item Zum L\oe sen von Differentialgleichungen sind Funktionen zu finden, die diesen Bedingungen gen\ue gen.
+			\item Wir befassen uns hier mit der Frage, unter welchen Annahmen L\oe sungen existieren.
+			\item Anschlie\ss end lernen wir einige Spezialf\ae lle kennen.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Einfache Differentialgleichungen}
+		\begin{itemize}
+			\item Sei $A\subseteq\RR^2$ eine Menge und $f:A\to\RR$, $(x,y)\mapsto f(x,y)$ eine stetige Funktion.
+			\item Eine \alert{Differentialgleichung} hat die Form
+				\begin{align*}
+					\phi'(x)&=f(x,\phi(x)).
+				\end{align*}
+			\item Dabei ist $\phi:I\to\RR$ eine differenzierbare Funktion auf einem Intervall $I$ mit der Eigenschaft, da\ss\ der Graph von $\phi$, also die Menge
+				\begin{align*}
+					G(\phi)&=\cbc{(x,\phi(x)):x\in I}
+				\end{align*}
+				eine Teilmenge von $A$ ist.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Einfache Differentialgleichungen}
+		\begin{itemize}
+			\item Eine \ue bliche wenn auch saloppe Schreibweise ist
+				\begin{align*}
+					y'&=f(x,y).
+				\end{align*}
+			\item {\itshape Intuition: die Funktion $f$ gibt an jedem Punkt $\binom xy\in A$ eine Geschwindigkeit vor. Wir suchen eine Bewegung $\phi(x)$, deren Geschwindigkeit zum Zeitpunkt $x$ genau den vorgegebenen Wert $f(x,\phi(x))$ hat.}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Wir betrachten die Funktion $f(x,y)=xy$.
+			\item Die L\oe sung der Differentialgleichung
+				\begin{align*}
+				y'=xy
+				\end{align*}
+				ist die Funktion $y=\exp(x^2/2)$.
+			\item Denn nach der Kettenregel gilt
+				$$y'=\exp(x^2/2)'=\frac{2x}{2}\exp(x^2/2)=xy.$$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Wir betrachten die Funktion $f(x,y)=xy$.
+			\item Die L\oe sung der Differentialgleichung
+				\begin{align*}
+				y'=xy
+				\end{align*}
+				ist die Funktion $y=\exp(x^2/2)$.
+			\item Denn nach der Kettenregel gilt
+				$$y'=\exp(x^2/2)'=\frac{2x}{2}\exp(x^2/2)=xy.$$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Systeme von Differentialgleichungen}
+		\begin{itemize}
+			\item Sei $A\subseteq\RR^{n+1}$ und sei
+				\begin{align*}
+					f:A\to\RR^n,\quad (x,y_1,\ldots,y_n)\mapsto f(x,y_1,\ldots,y_n)=\begin{pmatrix}f_1(x,y_1,\ldots,y_n)\\\vdots\\f_n(x,y_1,\ldots,y_n)
+					\end{pmatrix}
+				\end{align*}
+				eine Funktion.
+			\item Wir fragen nach einer L\oe sung des Systems von Differentialgleichungen
+				\begin{align*}
+					y_1'&=f_1(x,y_1,\ldots,y_n)\\&\vdots\\y_n'&=f_n(x,y_1,\ldots,y_n)
+				\end{align*}
+			\item \alert{Kurzschreibweise:} $y'=f(x,y)$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Systeme von Differentialgleichungen}
+		\begin{itemize}
+			\item Das bedeutet, wir such eine Funktion $$\phi:I\to\RR^n,\quad x\mapsto\phi(x)=\begin{pmatrix}\phi_1(x)\\\vdots\\\phi_n(x)\end{pmatrix}$$ auf einem Intervall $I$, so da\ss
+				\begin{align*}
+					G(\phi)&=\cbc{(x,\phi(x)):x\in I}\subseteq A,
+				\end{align*}
+			\item und so da\ss die einzelnen Funktionen $\phi_1,\ldots,\phi_n$ differenzierbar sind mit Ableitungen
+			\begin{align*}
+				\phi_i'(x)=f(x,\phi_i(x)).
+			\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Differentialgleichungen h\oe herer Ordnung}
+		\begin{itemize}
+			\item Eine \emph{Differentialgleichung $n$-ter Ordnung} ist eine Gleichung der Form
+				\begin{align*}
+					y^{[n]}=f(x,y^{[1]},\ldots,y^{[n-1]}),
+				\end{align*}
+				wobei $y=y(x)\in\RR$.
+			\item In der Gleichung treten also die ersten $n$ Ableitungen von $y$ auf!
+			\item Differentialgleichungen $n$-ter Ordnung k\oe nnen auf Systeme von Differentialgleichungen zur\ue ckgef\ue hrt werden.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Eine Menge $A\subseteq\RR^n$ hei\ss t \emph{offen}, wenn es zu jedem Punkt $a\in A$ eine Zahl $\eps>0$ gibt, so da\ss\
+				\begin{align*}
+					\cbc{y\in\RR^n:\|x-y\|<\eps}\subseteq A.
+				\end{align*}
+			\item \alert{Erinnerung:} $$\|z\|=\sqrt{\sum_{i=1}^nz_i^2}.$$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $A\subseteq\RR^n$.
+			\item Eine Funktion $f:A\to\RR^m$ hei\ss t \emph{lokal Lipschitz-stetig}, wenn es zu jedem $a\in A$ Zahlen $\eps>0$ und $L>0$ gibt, so da\ss\ f\ue r alle $b\in A$ mit $\|a-b\|<\eps$ gilt
+				\begin{align*}
+					\|f(a)-f(b)\|\leq L\|a-b\|.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition}
+		\begin{itemize}
+			\item Sei $A\subseteq\RR^n$ offen und $f:A\to\RR^m$ eine Funktion, deren partielle Ableitungen existieren und stetig sind.
+			\item Dann ist $f$ lokal Lipschitz-stetig.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Eindeutigkeitssatz}
+		\begin{itemize}
+			\item Sei $A\subseteq\RR^{n+1}$ offen.
+			\item Sei $f:A\to\RR^n$ lokal Lipschitz-stetig.
+			\item Wenn $\phi,\psi:I\to\RR^n$ zwei L\oe sungen des Differentialgleichungssystems
+				\begin{align*}
+					y'=f(x,y)
+				\end{align*}
+				sind,
+			\item und wenn es einen Punkt $z\in I$ mit $\phi(z)=\psi(z)$ gibt,
+			\item dann gilt $\phi(x)=\psi(x)$ f\ue r alle $x\in I$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Existenzsatz}
+		\begin{itemize}
+			\item Sei $A\subset\RR^{n+1}$ offen.
+			\item Sei $f:A\to\RR^n$ lokal Lipschitz-stetig.
+			\item Dann existiert zu jedem Punkt $(x_0,y_0)\in A$ eine Zahl $\eps>0$ und eine Funktion $\phi:(x_0-\eps,x_0+eps)\to\RR^n$, so da\ss
+				\begin{align*}
+					\phi(x_0)&=y_0\\
+					\phi_i'(x)&=f_i(x,\phi(x))&&\mbox{f\ue r alle }x\in(x_0-\eps,x_0+\eps).
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Existenzsatz}
+		\begin{itemize}
+			\item Sei $A\subset\RR^{n+1}$ offen.
+			\item Sei $f:A\to\RR^n$ lokal Lipschitz-stetig.
+			\item Dann existiert zu jedem Punkt $(x_0,y_0)\in A$ eine Zahl $\eps>0$ und eine Funktion $\phi:(x_0-\eps,x_0+\eps)\to\RR^n$, so da\ss
+				\begin{align*}
+					\phi(x_0)&=y_0\\
+					\phi_i'(x)&=f_i(x,\phi(x))&&\mbox{f\ue r alle }x\in(x_0-\eps,x_0+\eps).
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel: L\oe sung durch Integrieren}
+		\begin{itemize}
+			\item Wir kommen zur\ue ck auf unsere erste Differentialgleichung
+				\begin{align*}
+				y'=2xy
+				\end{align*}
+			\item Wir geben eine \alert{Anfangsbedingung} $\phi_0(0)=y_0$ vor.
+			\item Davon aus gehend konstruieren wir eine Folge von Funktion
+				\begin{align*}
+					\phi_{\ell+1}(x)&=y_0+2\int_0^xz\phi_\ell(z)\dd z
+				\end{align*}
+			\item Ausgehend von $\phi_0$ berechnen wir
+				\begin{align*}
+					\phi_1(x)&=y_0+2\int_0^x\phi_0(z)z\dd z=y_0+y_0\int_0^xz\dd z=y_0(1+x^2)\\
+					\phi_2(x)&=y_0+2\int_0^x\phi_1(z)z\dd z=y_0(1+x^2+x^4/2)
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel: L\oe sung durch Integrieren}
+		\begin{itemize}
+			\item Allgemein erhalten wir
+				\begin{align*}
+					\phi_\ell(x)&=y_0\sum_{i=0}^\ell\frac{x^{2i}}{i!}
+				\end{align*}
+			\item Bilden wir den Grenzwert $\ell\to\infty$, so erhalten wir
+				\begin{align*}
+					\phi(x)&=\lim_{\ell\to\infty}\phi_\ell(x)=y_0\exp(x^2).
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel: Lineare Differentialgleichungen}
+		\begin{itemize}
+			\item Wir betrachten die \emph{homogene lineare Differentialgleichung}
+				\begin{align*}
+					y'=\alpha(x)y.
+				\end{align*}
+			\item Auch diese Differentialgleichung k\oe nnen wir durch Integration l\oe sen:
+				\begin{align*}
+					\phi(x)&=y_0\exp\bc{\int_{x_0}^x\alpha(z)\dd z}.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel: inhomogene lineare Differentialgleichungen}
+		\begin{itemize}
+			\item Etwas komplizierter ist der inhomogene Fall
+				\begin{align*}
+					y'=\alpha(x)y+\beta(x).
+				\end{align*}
+			\item Wir betrachten dazu die homogene L\oe sung
+				\begin{align*}
+					\phi(x)&=y_0\exp\bc{\int_{x_0}^x\alpha(z)\dd z}
+				\end{align*}
+				und nehmen an, da\ss\ $\phi(x_0)\neq0$.
+			\item Wir definieren nun die Funktion
+				\begin{align*}
+					\psi(x)=\int_{x_0}^x\frac{\beta(z)}{\phi(z)}\dd z+c
+				\end{align*}
+				f\ue r eine feste Zahl $c\in\RR$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel: inhomogene lineare Differentialgleichungen}
+		\begin{itemize}
+			\item Dann erhalten wir die L\oe sung
+				\begin{align*}
+					\varphi(x)=\phi(x)\psi(x).
+				\end{align*}
+			\item Durch geeignete Wahl von $c$ l\ae\ss t sich die gew\ue nschte Anfangsbedingung einstellen.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zusammenfassung}
+		\begin{itemize}
+			\item Gew\oe hnliche Differentialgleichungen treten in Anwendungen in der Physik, Elektrotechnik und Informatik auf.
+			\item Es gibt kein allgemeines Rechenschema zum L\oe sen solcher Differentialgleichungen.
+			\item Viele Spezialf\ae lle k\oe nnen aber durch Integration gel\oe st werden.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\end{document}

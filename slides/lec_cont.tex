@@ -1,0 +1,471 @@
+\documentclass{beamer}
+\usepackage{amsmath,graphics}
+\usepackage{amssymb}
+
+\usetheme{default}
+\usepackage{xcolor}
+
+\definecolor{solarizedBase03}{HTML}{002B36}
+\definecolor{solarizedBase02}{HTML}{073642}
+\definecolor{solarizedBase01}{HTML}{586e75}
+\definecolor{solarizedBase00}{HTML}{657b83}
+\definecolor{solarizedBase0}{HTML}{839496}
+\definecolor{solarizedBase1}{HTML}{93a1a1}
+\definecolor{solarizedBase2}{HTML}{EEE8D5}
+\definecolor{solarizedBase3}{HTML}{FDF6E3}
+\definecolor{solarizedYellow}{HTML}{B58900}
+\definecolor{solarizedOrange}{HTML}{CB4B16}
+\definecolor{solarizedRed}{HTML}{DC322F}
+\definecolor{solarizedMagenta}{HTML}{D33682}
+\definecolor{solarizedViolet}{HTML}{6C71C4}
+%\definecolor{solarizedBlue}{HTML}{268BD2}
+\definecolor{solarizedBlue}{HTML}{134676}
+\definecolor{solarizedCyan}{HTML}{2AA198}
+\definecolor{solarizedGreen}{HTML}{859900}
+\definecolor{myBlue}{HTML}{162DB0}%{261CA4}
+\setbeamercolor*{item}{fg=myBlue}
+\setbeamercolor{normal text}{fg=solarizedBase03, bg=solarizedBase3}
+\setbeamercolor{alerted text}{fg=myBlue}
+\setbeamercolor{example text}{fg=myBlue, bg=solarizedBase3}
+\setbeamercolor*{frametitle}{fg=solarizedRed}
+\setbeamercolor*{title}{fg=solarizedRed}
+\setbeamercolor{block title}{fg=myBlue, bg=solarizedBase3}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\beamertemplatenavigationsymbolsempty
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+\usepackage{fourier}
+
+\def\vec#1{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+{\mbox{\boldmath$\textstyle#1$}}
+{\mbox{\boldmath$\scriptstyle#1$}}
+{\mbox{\boldmath$\scriptscriptstyle#1$}}}
+\definecolor{OwnGrey}{rgb}{0.560,0.000,0.000} % #999999
+\definecolor{OwnBlue}{rgb}{0.121,0.398,0.711} % #1f64b0
+\definecolor{red4}{rgb}{0.5,0,0}
+\definecolor{blue4}{rgb}{0,0,0.5}
+\definecolor{Blue}{rgb}{0,0,0.66}
+\definecolor{LightBlue}{rgb}{0.9,0.9,1}
+\definecolor{Green}{rgb}{0,0.5,0}
+\definecolor{LightGreen}{rgb}{0.9,1,0.9}
+\definecolor{Red}{rgb}{0.9,0,0}
+\definecolor{LightRed}{rgb}{1,0.9,0.9}
+\definecolor{White}{gray}{1}
+\definecolor{Black}{gray}{0}
+\definecolor{LightGray}{gray}{0.8}
+\definecolor{Orange}{rgb}{0.1,0.2,1}
+\setbeamerfont{sidebar right}{size=\scriptsize}
+\setbeamercolor{sidebar right}{fg=Black}
+
+\renewcommand{\emph}[1]{{\textcolor{solarizedRed}{\itshape #1}}}
+
+\newcommand\cA{\mathcal A}
+\newcommand\cB{\mathcal B}
+\newcommand\cC{\mathcal C}
+\newcommand\cD{\mathcal D}
+\newcommand\cE{\mathcal E}
+\newcommand\cF{\mathcal F}
+\newcommand\cG{\mathcal G}
+\newcommand\cH{\mathcal H}
+\newcommand\cI{\mathcal I}
+\newcommand\cJ{\mathcal J}
+\newcommand\cK{\mathcal K}
+\newcommand\cL{\mathcal L}
+\newcommand\cM{\mathcal M}
+\newcommand\cN{\mathcal N}
+\newcommand\cO{\mathcal O}
+\newcommand\cP{\mathcal P}
+\newcommand\cQ{\mathcal Q}
+\newcommand\cR{\mathcal R}
+\newcommand\cS{\mathcal S}
+\newcommand\cT{\mathcal T}
+\newcommand\cU{\mathcal U}
+\newcommand\cV{\mathcal V}
+\newcommand\cW{\mathcal W}
+\newcommand\cX{\mathcal X}
+\newcommand\cY{\mathcal Y}
+\newcommand\cZ{\mathcal Z}
+
+\newcommand\fA{\mathfrak A}
+\newcommand\fB{\mathfrak B}
+\newcommand\fC{\mathfrak C}
+\newcommand\fD{\mathfrak D}
+\newcommand\fE{\mathfrak E}
+\newcommand\fF{\mathfrak F}
+\newcommand\fG{\mathfrak G}
+\newcommand\fH{\mathfrak H}
+\newcommand\fI{\mathfrak I}
+\newcommand\fJ{\mathfrak J}
+\newcommand\fK{\mathfrak K}
+\newcommand\fL{\mathfrak L}
+\newcommand\fM{\mathfrak M}
+\newcommand\fN{\mathfrak N}
+\newcommand\fO{\mathfrak O}
+\newcommand\fP{\mathfrak P}
+\newcommand\fQ{\mathfrak Q}
+\newcommand\fR{\mathfrak R}
+\newcommand\fS{\mathfrak S}
+\newcommand\fT{\mathfrak T}
+\newcommand\fU{\mathfrak U}
+\newcommand\fV{\mathfrak V}
+\newcommand\fW{\mathfrak W}
+\newcommand\fX{\mathfrak X}
+\newcommand\fY{\mathfrak Y}
+\newcommand\fZ{\mathfrak Z}
+
+\newcommand\fa{\mathfrak a}
+\newcommand\fb{\mathfrak b}
+\newcommand\fc{\mathfrak c}
+\newcommand\fd{\mathfrak d}
+\newcommand\fe{\mathfrak e}
+\newcommand\ff{\mathfrak f}
+\newcommand\fg{\mathfrak g}
+\newcommand\fh{\mathfrak h}
+%\newcommand\fi{\mathfrak i}
+\newcommand\fj{\mathfrak j}
+\newcommand\fk{\mathfrak k}
+\newcommand\fl{\mathfrak l}
+\newcommand\fm{\mathfrak m}
+\newcommand\fn{\mathfrak n}
+\newcommand\fo{\mathfrak o}
+\newcommand\fp{\mathfrak p}
+\newcommand\fq{\mathfrak q}
+\newcommand\fr{\mathfrak r}
+\newcommand\fs{\mathfrak s}
+\newcommand\ft{\mathfrak t}
+\newcommand\fu{\mathfrak u}
+\newcommand\fv{\mathfrak v}
+\newcommand\fw{\mathfrak w}
+\newcommand\fx{\mathfrak x}
+\newcommand\fy{\mathfrak y}
+\newcommand\fz{\mathfrak z}
+
+\newcommand\vA{\vec A}
+\newcommand\vB{\vec B}
+\newcommand\vC{\vec C}
+\newcommand\vD{\vec D}
+\newcommand\vE{\vec E}
+\newcommand\vF{\vec F}
+\newcommand\vG{\vec G}
+\newcommand\vH{\vec H}
+\newcommand\vI{\vec I}
+\newcommand\vJ{\vec J}
+\newcommand\vK{\vec K}
+\newcommand\vL{\vec L}
+\newcommand\vM{\vec M}
+\newcommand\vN{\vec N}
+\newcommand\vO{\vec O}
+\newcommand\vP{\vec P}
+\newcommand\vQ{\vec Q}
+\newcommand\vR{\vec R}
+\newcommand\vS{\vec S}
+\newcommand\vT{\vec T}
+\newcommand\vU{\vec U}
+\newcommand\vV{\vec V}
+\newcommand\vW{\vec W}
+\newcommand\vX{\vec X}
+\newcommand\vY{\vec Y}
+\newcommand\vZ{\vec Z}
+
+\newcommand\va{\vec a}
+\newcommand\vb{\vec b}
+\newcommand\vc{\vec c}
+\newcommand\vd{\vec d}
+\newcommand\ve{\vec e}
+\newcommand\vf{\vec f}
+\newcommand\vg{\vec g}
+\newcommand\vh{\vec h}
+\newcommand\vi{\vec i}
+\newcommand\vj{\vec j}
+\newcommand\vk{\vec k}
+\newcommand\vl{\vec l}
+\newcommand\vm{\vec m}
+\newcommand\vn{\vec n}
+\newcommand\vo{\vec o}
+\newcommand\vp{\vec p}
+\newcommand\vq{\vec q}
+\newcommand\vr{\vec r}
+\newcommand\vs{\vec s}
+\newcommand\vt{\vec t}
+\newcommand\vu{\vec u}
+\newcommand\vv{\vec v}
+\newcommand\vw{\vec w}
+\newcommand\vx{\vec x}
+\newcommand\vy{\vec y}
+\newcommand\vz{\vec z}
+
+\renewcommand\AA{\mathbb A}
+\newcommand\NN{\mathbb N}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\PP{\mathbb P}
+\newcommand\QQ{\mathbb Q}
+\newcommand\RR{\mathbb R}
+\newcommand\RRpos{\mathbb R_{\geq0}}
+\renewcommand\SS{\mathbb S}
+\newcommand\CC{\mathbb C}
+
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\pr}{\mathrm{P}}
+\newcommand{\Vol}{\mathrm{vol}}
+\newcommand\norm[1]{\left\|{#1}\right\|} 
+\newcommand\sign{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand\bc[1]{\left({#1}\right)} 
+\newcommand\cbc[1]{\left\{{#1}\right\}} 
+\newcommand\bcfr[2]{\bc{\frac{#1}{#2}}} 
+\newcommand{\bck}[1]{\left\langle{#1}\right\rangle} 
+\newcommand\brk[1]{\left\lbrack{#1}\right\rbrack} 
+\newcommand\scal[2]{\bck{{#1},{#2}}} 
+\newcommand{\vecone}{\mathbb{1}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\ggt}{\mathrm{ggT}}
+\newcommand{\kgv}{\mathrm{kgV}}
+\newcommand{\trans}{\top}
+
+\newcommand{\Karonski}{Karo\'nski}
+\newcommand{\Erdos}{Erd\H{o}s}
+\newcommand{\Renyi}{R\'enyi}
+\newcommand{\Lovasz}{Lov\'asz}
+\newcommand{\Juhasz}{Juh\'asz}
+\newcommand{\Bollobas}{Bollob\'as}
+\newcommand{\Furedi}{F\"uredi}
+\newcommand{\Komlos}{Koml\'os}
+\newcommand{\Luczak}{\L uczak}
+\newcommand{\Kucera}{Ku\v{c}era}
+\newcommand{\Szemeredi}{Szemer\'edi}
+
+\renewcommand{\ae}{\"a}
+\renewcommand{\oe}{\"o}
+\newcommand{\ue}{\"u}
+\newcommand{\Ae}{\"A}
+\newcommand{\Oe}{\"O}
+\newcommand{\Ue}{\"U}
+
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\rrk}{\mathrm{zrg}}
+\newcommand{\crk}{\mathrm{srg}}
+\newcommand{\rk}{\mathrm{rg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\nul}{\mathrm{nul}}
+\newcommand{\eig}{\mathrm{eig}}
+
+\newcommand{\mytitle}{Stetigkeit}
+
+\title[Annuma]{\mytitle}
+\author[Amin Coja-Oghlan]{Amin Coja-Oghlan}
+\institute[Frankfurt]{JWGUFFM}
+\date{}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Worum geht es?}
+		\begin{itemize}
+			\item Stetige Funktionen sind anschaulich gesprochen Funktionen, deren Graph man ``in einem Zug'' durchzeichnen kann.
+			\item Wir werden die exakte Definition und einige Eigenschaften kennenlernen.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $f:A\to\RR$ eine Funktion und $x\in A$.
+			\item $f$ hei\ss t \emph{stetig in $x$}, wenn f\ue r jede Folge $(a_n)_n$ mit $a_n\in A$ und $\lim_{n\to\infty}a_n=x$ gilt:
+				\begin{align*}
+					\lim_{n\to\infty}f(a_n)&=f(x).
+				\end{align*}
+			\item {\itshape Anders geschrieben:}
+				\begin{align*}
+					\lim_{n\to\infty}f(a_n)&=f(\lim_{n\to\infty}a_n).
+				\end{align*}
+			\item Wir nennen $f$ \emph{stetig}, wenn $f$ stetig in $x$ ist f\ue r alle $x\in A$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item F\ue r jede Zahl $c\in\RR$ ist die konstante Funktion $f:\RR\to\RR$, $x\mapsto c$ stetig.
+			\item Denn angenommen $\lim_{n\to\infty}a_n=x$.
+			\item Dann gilt
+				\begin{align*}
+					f(x)=c=\lim_{n\to\infty}f(a_n).
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Funktion $f:\RR\to\RR$, $x\mapsto x$ ist stetig.
+			\item Denn angenommen $\lim_{n\to\infty}a_n=x$.
+			\item Dann gilt
+				\begin{align*}
+					\lim_{n\to\infty}f(a_n)=\lim_{n\to\infty}a_n=x=f(x).
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Funktion $f:\RR\to\RR$, $x\mapsto 1/x$ ist stetig.
+			\item Denn angenommen $\lim_{n\to\infty}a_n=x$.
+			\item Dann gilt
+				\begin{align*}
+					\lim_{n\to\infty}f(a_n)=\lim_{n\to\infty}1/a_n=1/x=f(x).
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition}
+		Angenommen $f,g:A\to\RR$ sind stetig in $x\in A$.
+		\begin{itemize}
+			\item Dann ist auch $f+g:A\to\RR$ stetig in $x$.
+			\item Ebenso ist $f\cdot g:A\to\RR$ stetig in $x$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Korollar}
+		Jedes Polynom $f:\RR\to\RR$, $x\mapsto\sum_{i=0}^ka_ix^i$ ist stetig.
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Korollar}
+		Sind $f,g:\RR\to\RR$ Polynome, so ist die rationale Funktion
+		\begin{align*}
+			\frac{f}{g}:A\to\RR\qquad x\mapsto\frac{f(x)}{g(x)}
+		\end{align*}
+		stetig auf der Menge
+		\begin{align*}
+			A=A(g)=\cbc{x\in\RR:g(x)\neq0}.
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition}
+		Sind $f:A\to B$ und $g:B\to\RR$ Funktionen, so da\ss\ $f$ stetig ist in $x\in A$ und $g$ stetig ist in $f(x)\in B$, so ist $g\circ f$ stetig in $x$.
+	\end{block}
+	\begin{block}{Beweis}
+	\begin{itemize}
+		\item Angenommen $(a_n)_n$ konvergiert gegen $x$.
+		\item Weil $f$ stetig ist, konvergiert $f(a_n)$ gegen $y=f(x)$.
+		\item Weil $g$ stetig ist, konvergiert $g(f(a_n))$ gegen $g(y)=g(f(x))$.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Gegenbeispiel}
+	\begin{itemize}
+	\item Die Funktion
+		\begin{align*}
+			f:\RR\to\RR&&x\mapsto\begin{cases}-1&\mbox{falls }x<0\\1&\mbox{sonst}\end{cases}
+		\end{align*}
+		ist unstetig in $x=0$.
+	\item Denn die Folge $(a_n)_n$ mit $a_n=(-1)^n/n$ konvergiert zwar gegen $0$, aber die Folge $(f(a_n))_n$ alterniert:
+		\begin{align*}
+		-1,1,-1,1,-1,1,-1,1,\ldots
+		\end{align*}
+	\item Diese Folge konvergiert also gar nicht, und ganz sicher nicht gegen $f(0)=1$.
+	\end{itemize}	
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Gegenbeispiel}
+	\begin{itemize}
+	\item Die Funktion
+		\begin{align*}
+			f:\RR\to\RR&&x\mapsto\begin{cases}-1&\mbox{falls }x\in\QQ\\1&\mbox{sonst}\end{cases}
+		\end{align*}
+		ist unstetig in jedem Punkt $x\in\RR$.
+	\item Denn einerseits gibt es zu jedem $x\in\RR$ eine Folge $(q_n)_n$ mit $q_n\in\QQ$, die gegen $x$ konvergiert.
+	\item Andererseits gibt es auch eine Folge $(r_n)_n$ mit $r_n\in\RR\setminus\QQ$, die gegen $x$ konvergiert.
+	\item Wenn $x\in\QQ$ ist, k\oe nnte man beispielsweise die Folge
+		$ r_n=x+\sqrt 2/n $ w\ae hlen.
+	\item Wenn $x\in\RR\setminus\QQ$, w\ae hle beispielsweise $r_n=x$ f\ue r alle $n$.
+	\end{itemize}	
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Gegenbeispiel}
+	\begin{itemize}
+		\item Die Folge
+			\begin{align*}
+				a_n&=\begin{cases}
+					q_n&\mbox{ falls $n$ ungerade}\\
+					r_n&\mbox{ falls $n$ gerade}
+				\end{cases}
+			\end{align*}
+			konvergiert nun gegen $x$.
+		\item Aber wiederum ist $f(a_n)$ die alternierende Folge:
+			\begin{align*}
+			-1,1,-1,1,-1,1,\ldots,
+			\end{align*}
+			die nicht konvergiert.
+	\end{itemize}	
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zwischenwertsatz}
+		Angenommen $f:[0,1]\to\RR$ ist eine stetige Funktion mit $f(0)<0$ und $f(1)>0$.
+		Dann gibt es eine Zahl $z\in(0,1)$ mit $f(z)=0$.
+	\end{block}
+	\begin{block}{Beweis}
+	\begin{itemize}
+	\item Die Menge $S=\cbc{x\in[0,1]:f(x)<0}$ ist beschr\ae nkt.
+	\item Nach dem Vollst\ae ndigkeitsaxiom existiert $z=\sup S$.
+	\item Weil $f$ stetig ist, gilt $f(z)=0$.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Korollar}
+		Angenommen $f:[0,1]\to\RR$ ist eine stetige Funktion.
+		Dann gibt es eine Zahl $z\in[0,1]$ mit $$f(z)=\sup\cbc{f(x):x\in[0,1]}.$$
+	\end{block}
+	\begin{block}{}
+	\begin{itemize}
+	\item Eine stetige Funktion auf dem Intervall $[0,1]$ mit nimmt also immer ein Maximum an.
+	\item Eine solche Funktion ist insbesondere beschr\ae nkt, d.h.\
+		$$\cbc{f(x):x\in[0,1]}$$
+		ist beschr\ae nkt.
+	\item Entsprechendes gilt f\ue r andere Intervalle $[a,b]$ mit $a,b\in\RR$ und f\ue r Minima anstelle von Maxima.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zusammenfassung}
+	\begin{itemize}
+		\item Stetige Funktionen kann man in einem Zug durchzeichnen.
+		\item Beispiels sind Polynome und rationale Funktionen.
+		\item Wir haben einige Gegenbeispiele kennengelernt.
+	\end{itemize}	
+	\end{block}
+\end{frame}
+
+\end{document}

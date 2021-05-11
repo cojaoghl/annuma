@@ -1,0 +1,667 @@
+\documentclass{beamer}
+\usepackage{amsmath,graphics}
+\usepackage{amssymb}
+
+\usetheme{default}
+\usepackage{xcolor}
+
+\definecolor{solarizedBase03}{HTML}{002B36}
+\definecolor{solarizedBase02}{HTML}{073642}
+\definecolor{solarizedBase01}{HTML}{586e75}
+\definecolor{solarizedBase00}{HTML}{657b83}
+\definecolor{solarizedBase0}{HTML}{839496}
+\definecolor{solarizedBase1}{HTML}{93a1a1}
+\definecolor{solarizedBase2}{HTML}{EEE8D5}
+\definecolor{solarizedBase3}{HTML}{FDF6E3}
+\definecolor{solarizedYellow}{HTML}{B58900}
+\definecolor{solarizedOrange}{HTML}{CB4B16}
+\definecolor{solarizedRed}{HTML}{DC322F}
+\definecolor{solarizedMagenta}{HTML}{D33682}
+\definecolor{solarizedViolet}{HTML}{6C71C4}
+%\definecolor{solarizedBlue}{HTML}{268BD2}
+\definecolor{solarizedBlue}{HTML}{134676}
+\definecolor{solarizedCyan}{HTML}{2AA198}
+\definecolor{solarizedGreen}{HTML}{859900}
+\definecolor{myBlue}{HTML}{162DB0}%{261CA4}
+\setbeamercolor*{item}{fg=myBlue}
+\setbeamercolor{normal text}{fg=solarizedBase03, bg=solarizedBase3}
+\setbeamercolor{alerted text}{fg=myBlue}
+\setbeamercolor{example text}{fg=myBlue, bg=solarizedBase3}
+\setbeamercolor*{frametitle}{fg=solarizedRed}
+\setbeamercolor*{title}{fg=solarizedRed}
+\setbeamercolor{block title}{fg=myBlue, bg=solarizedBase3}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\beamertemplatenavigationsymbolsempty
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+\usepackage{fourier}
+
+\def\vec#1{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+{\mbox{\boldmath$\textstyle#1$}}
+{\mbox{\boldmath$\scriptstyle#1$}}
+{\mbox{\boldmath$\scriptscriptstyle#1$}}}
+\definecolor{OwnGrey}{rgb}{0.560,0.000,0.000} % #999999
+\definecolor{OwnBlue}{rgb}{0.121,0.398,0.711} % #1f64b0
+\definecolor{red4}{rgb}{0.5,0,0}
+\definecolor{blue4}{rgb}{0,0,0.5}
+\definecolor{Blue}{rgb}{0,0,0.66}
+\definecolor{LightBlue}{rgb}{0.9,0.9,1}
+\definecolor{Green}{rgb}{0,0.5,0}
+\definecolor{LightGreen}{rgb}{0.9,1,0.9}
+\definecolor{Red}{rgb}{0.9,0,0}
+\definecolor{LightRed}{rgb}{1,0.9,0.9}
+\definecolor{White}{gray}{1}
+\definecolor{Black}{gray}{0}
+\definecolor{LightGray}{gray}{0.8}
+\definecolor{Orange}{rgb}{0.1,0.2,1}
+\setbeamerfont{sidebar right}{size=\scriptsize}
+\setbeamercolor{sidebar right}{fg=Black}
+
+\renewcommand{\emph}[1]{{\textcolor{solarizedRed}{\itshape #1}}}
+
+\newcommand\cA{\mathcal A}
+\newcommand\cB{\mathcal B}
+\newcommand\cC{\mathcal C}
+\newcommand\cD{\mathcal D}
+\newcommand\cE{\mathcal E}
+\newcommand\cF{\mathcal F}
+\newcommand\cG{\mathcal G}
+\newcommand\cH{\mathcal H}
+\newcommand\cI{\mathcal I}
+\newcommand\cJ{\mathcal J}
+\newcommand\cK{\mathcal K}
+\newcommand\cL{\mathcal L}
+\newcommand\cM{\mathcal M}
+\newcommand\cN{\mathcal N}
+\newcommand\cO{\mathcal O}
+\newcommand\cP{\mathcal P}
+\newcommand\cQ{\mathcal Q}
+\newcommand\cR{\mathcal R}
+\newcommand\cS{\mathcal S}
+\newcommand\cT{\mathcal T}
+\newcommand\cU{\mathcal U}
+\newcommand\cV{\mathcal V}
+\newcommand\cW{\mathcal W}
+\newcommand\cX{\mathcal X}
+\newcommand\cY{\mathcal Y}
+\newcommand\cZ{\mathcal Z}
+
+\newcommand\fA{\mathfrak A}
+\newcommand\fB{\mathfrak B}
+\newcommand\fC{\mathfrak C}
+\newcommand\fD{\mathfrak D}
+\newcommand\fE{\mathfrak E}
+\newcommand\fF{\mathfrak F}
+\newcommand\fG{\mathfrak G}
+\newcommand\fH{\mathfrak H}
+\newcommand\fI{\mathfrak I}
+\newcommand\fJ{\mathfrak J}
+\newcommand\fK{\mathfrak K}
+\newcommand\fL{\mathfrak L}
+\newcommand\fM{\mathfrak M}
+\newcommand\fN{\mathfrak N}
+\newcommand\fO{\mathfrak O}
+\newcommand\fP{\mathfrak P}
+\newcommand\fQ{\mathfrak Q}
+\newcommand\fR{\mathfrak R}
+\newcommand\fS{\mathfrak S}
+\newcommand\fT{\mathfrak T}
+\newcommand\fU{\mathfrak U}
+\newcommand\fV{\mathfrak V}
+\newcommand\fW{\mathfrak W}
+\newcommand\fX{\mathfrak X}
+\newcommand\fY{\mathfrak Y}
+\newcommand\fZ{\mathfrak Z}
+
+\newcommand\fa{\mathfrak a}
+\newcommand\fb{\mathfrak b}
+\newcommand\fc{\mathfrak c}
+\newcommand\fd{\mathfrak d}
+\newcommand\fe{\mathfrak e}
+\newcommand\ff{\mathfrak f}
+\newcommand\fg{\mathfrak g}
+\newcommand\fh{\mathfrak h}
+%\newcommand\fi{\mathfrak i}
+\newcommand\fj{\mathfrak j}
+\newcommand\fk{\mathfrak k}
+\newcommand\fl{\mathfrak l}
+\newcommand\fm{\mathfrak m}
+\newcommand\fn{\mathfrak n}
+\newcommand\fo{\mathfrak o}
+\newcommand\fp{\mathfrak p}
+\newcommand\fq{\mathfrak q}
+\newcommand\fr{\mathfrak r}
+\newcommand\fs{\mathfrak s}
+\newcommand\ft{\mathfrak t}
+\newcommand\fu{\mathfrak u}
+\newcommand\fv{\mathfrak v}
+\newcommand\fw{\mathfrak w}
+\newcommand\fx{\mathfrak x}
+\newcommand\fy{\mathfrak y}
+\newcommand\fz{\mathfrak z}
+
+\newcommand\vA{\vec A}
+\newcommand\vB{\vec B}
+\newcommand\vC{\vec C}
+\newcommand\vD{\vec D}
+\newcommand\vE{\vec E}
+\newcommand\vF{\vec F}
+\newcommand\vG{\vec G}
+\newcommand\vH{\vec H}
+\newcommand\vI{\vec I}
+\newcommand\vJ{\vec J}
+\newcommand\vK{\vec K}
+\newcommand\vL{\vec L}
+\newcommand\vM{\vec M}
+\newcommand\vN{\vec N}
+\newcommand\vO{\vec O}
+\newcommand\vP{\vec P}
+\newcommand\vQ{\vec Q}
+\newcommand\vR{\vec R}
+\newcommand\vS{\vec S}
+\newcommand\vT{\vec T}
+\newcommand\vU{\vec U}
+\newcommand\vV{\vec V}
+\newcommand\vW{\vec W}
+\newcommand\vX{\vec X}
+\newcommand\vY{\vec Y}
+\newcommand\vZ{\vec Z}
+
+\newcommand\va{\vec a}
+\newcommand\vb{\vec b}
+\newcommand\vc{\vec c}
+\newcommand\vd{\vec d}
+\newcommand\ve{\vec e}
+\newcommand\vf{\vec f}
+\newcommand\vg{\vec g}
+\newcommand\vh{\vec h}
+\newcommand\vi{\vec i}
+\newcommand\vj{\vec j}
+\newcommand\vk{\vec k}
+\newcommand\vl{\vec l}
+\newcommand\vm{\vec m}
+\newcommand\vn{\vec n}
+\newcommand\vo{\vec o}
+\newcommand\vp{\vec p}
+\newcommand\vq{\vec q}
+\newcommand\vr{\vec r}
+\newcommand\vs{\vec s}
+\newcommand\vt{\vec t}
+\newcommand\vu{\vec u}
+\newcommand\vv{\vec v}
+\newcommand\vw{\vec w}
+\newcommand\vx{\vec x}
+\newcommand\vy{\vec y}
+\newcommand\vz{\vec z}
+
+\renewcommand\AA{\mathbb A}
+\newcommand\NN{\mathbb N}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\PP{\mathbb P}
+\newcommand\QQ{\mathbb Q}
+\newcommand\RR{\mathbb R}
+\renewcommand\SS{\mathbb S}
+\newcommand\CC{\mathbb C}
+
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\pr}{\mathrm{P}}
+\newcommand{\Vol}{\mathrm{vol}}
+\newcommand\norm[1]{\left\|{#1}\right\|} 
+\newcommand\sign{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand\bc[1]{\left({#1}\right)} 
+\newcommand\cbc[1]{\left\{{#1}\right\}} 
+\newcommand\bcfr[2]{\bc{\frac{#1}{#2}}} 
+\newcommand{\bck}[1]{\left\langle{#1}\right\rangle} 
+\newcommand\brk[1]{\left\lbrack{#1}\right\rbrack} 
+\newcommand\scal[2]{\bck{{#1},{#2}}} 
+\newcommand{\vecone}{\mathbb{1}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\ggt}{\mathrm{ggT}}
+\newcommand{\kgv}{\mathrm{kgV}}
+\newcommand{\trans}{\top}
+
+\newcommand{\Karonski}{Karo\'nski}
+\newcommand{\Erdos}{Erd\H{o}s}
+\newcommand{\Renyi}{R\'enyi}
+\newcommand{\Lovasz}{Lov\'asz}
+\newcommand{\Juhasz}{Juh\'asz}
+\newcommand{\Bollobas}{Bollob\'as}
+\newcommand{\Furedi}{F\"uredi}
+\newcommand{\Komlos}{Koml\'os}
+\newcommand{\Luczak}{\L uczak}
+\newcommand{\Kucera}{Ku\v{c}era}
+\newcommand{\Szemeredi}{Szemer\'edi}
+
+\renewcommand{\ae}{\"a}
+\renewcommand{\oe}{\"o}
+\newcommand{\ue}{\"u}
+\newcommand{\Ae}{\"A}
+\newcommand{\Oe}{\"O}
+\newcommand{\Ue}{\"U}
+
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\rrk}{\mathrm{zrg}}
+\newcommand{\crk}{\mathrm{srg}}
+\newcommand{\rk}{\mathrm{rg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\nul}{\mathrm{nul}}
+\newcommand{\eig}{\mathrm{eig}}
+
+\newcommand{\mytitle}{Grenzwerte}
+
+\title[Annuma]{\mytitle}
+\author[Amin Coja-Oghlan]{Amin Coja-Oghlan}
+\institute[Frankfurt]{JWGUFFM}
+\date{}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Folgen und Grenzwerte}
+		\begin{itemize}
+			\item Reelle Zahlen sind Zahlen mit einer endlichen oder unendlichen Dezimalentwicklung wie beispielsweise
+				\begin{align*}
+					\frac{3}{4}&=0.75\\
+					-\frac{1}{3}&=-0.\overline 3\\
+					\pi&=3.1415926535897932384626433833\cdots
+				\end{align*}
+			\item A prior wissen wir nicht, wie wir mit solchen Zahlen rechnen sollen.
+			\item Die Begriffe \emph{Folge} und \emph{Grenzwert} beantworten diese Frage.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Folgen}
+		\begin{itemize}
+			\item Sei $\NN=\{1,2,3,\ldots\}$ die Menge der nat\ue rlichen Zahlen.
+			\item Eine \emph{Folge} $(a_n)_{n\in\NN}$ ist eine Abbildung $\NN\to\RR$ die jeder Zahl $n\in\NN$ eine reelle Zahl $a_n$ zuordnet.
+			\item Stellen Sie sich eine Folge als eine unendliche Liste von Zahlen vor.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiele}
+		\begin{itemize}
+			\item Die Folge $(a_n)_{n\in\NN}$ mit $a_n=1/n$ beginnt wie folgt:
+				\begin{align*}
+				1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots
+				\end{align*}
+			\item Folgen k\oe nnen rekursiv definiert werden; ein Beispiel ist die \emph{Fibonacci-Folge} $(b_n)_n$ mit $b_1=0,b_2=1$ und $b_{n+1}=b_{n-1}+b_n$:
+				\begin{align*}
+				0,1,1,2,3,5,8,13,21,\ldots
+				\end{align*}
+			\item Ein weiteres Beispiel ist die \emph{Leibniz-Folge} $(c_n)_n$ mit $c_1=1$ und
+				\begin{align*}
+					c_{n}&=c_{n-1}+\frac{(-1)^{n-1}}{2n-1}&&(n>1)\\
+					c_2&=1-\frac{1}{3}&
+					c_3&=1-\frac{1}{3}+\frac{1}{5}&
+					c_4&=1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiele}
+		\begin{itemize}
+			\item F\ue r eine unendliche Dezimalzahl erhalten wir eine Folge, wenn wir nur die ersten $n$ Nachkommastellen ber\ue cksichtigen:
+				\begin{align*}
+				&0.1\\
+				&0.11\\
+				&0.111\\
+				&\vdots
+				\end{align*}
+			\item Oder f\ue r die Kreiszahl $\pi$:
+				\begin{align*}
+				&3.1\\
+				&3.14\\
+				&3.141\\
+				&\vdots
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+		\begin{itemize}
+			\item Sei $(a_n)_n$ eine Folge und $z\in\RR$.
+			\item Wir nennen $z$ den \emph{Grenzwert} von $(a_n)_n$, wenn es zu jeder reellen Zahl $\eps>0$ eine Zahl $N\in\NN$ gibt, so da\ss\ 
+				\begin{align*}
+					|a_n-z|&<\eps\qquad\mbox{f\ue r alle }n>N.
+				\end{align*}
+			\item In diesem Fall schreiben wir 
+				\begin{align*}
+					z=\lim_{n\to\infty}a_n.
+				\end{align*}
+			\item \alert{Erinnerung:} f\ue r $s\in\RR$ ist der \emph{Betrag} definiert als
+				\begin{align*}
+					|s|&=\begin{cases}
+						s&\mbox{ falls }s\geq0\\
+						-s&\mbox{ falls }s<0
+					\end{cases}
+				\end{align*}
+			\item \emph{Intuition:} f\ue r gro\ss e $n$ liegen die $a_n$ beliebig nahe an $z$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Betrachte die Folge $a_n=\frac{1}{n}$; wir zeigen, da\ss\
+				\begin{align*}
+					\lim_{n\to\infty}a_n=0.
+				\end{align*}
+			\item Sei dazu $\eps>0$ und w\ae hle $N=1/\eps$.
+			\item Wenn $n>N$, dann gilt
+				\begin{align*}
+				|a_n-0|=|a_n|=\frac{1}{n}<\frac{1}{N}=\eps.
+				\end{align*}
+			\item Damit ist die Bedingung aus der Definition erf\ue llt.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel}
+		\begin{itemize}
+			\item Die Kreiszahl $\pi$ hat eine unendliche Dezimalentwicklung.
+			\item Dennoch k\oe nne wir eine Folge von Dezimalzahlen endlicher L\ae nge konstruieren, deren Grenzwert $\pi$ ist, indem wir nur die ersten $n$ Nachkommastellen ``mitnehmen'':
+				\begin{align*}
+					a_1&=3.1\\
+					a_2&=3.14\\
+					a_3&=3.141\\
+					a_4&=3.1415\qquad\mbox{etc.}
+				\end{align*}
+			\item Die Folge $(a_n)_n$ konvergiert gegen $\pi$, d.h.\
+				\begin{align*}
+					\lim_{n\to\infty}a_n&=\pi.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel (fortgesetzt)}
+		\begin{itemize}
+			\item Um das einzusehen, berechnen wir die Differenzen:
+				\begin{align*}
+					\abs{\pi-3.1}&=3.1415\cdots-3.1=0.04159\cdots\leq0.1\\
+					\abs{\pi-3.14}&=3.1415\cdots-3.14=0.00159\cdots\leq0.01\\
+					\abs{\pi-3.141}&=3.1415\cdots-3.141=0.00059\cdots\leq0.001\\
+					\abs{\pi-3.1415}&=3.1415\cdots-3.1415=0.00009\cdots\leq0.0001\\
+									&\vdots
+				\end{align*}
+			\item Der ``Approximationsfehler'' wird also beliebig klein.
+			\item Der Grenzwert der Folge ist daher $\pi$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Gegenbeispiel}
+		\begin{itemize}
+			\item Die Fibonaccifolge war definiert durch $a_1=0$, $a_2=1$ und 
+				\begin{align*}
+					a_n=a_{n-2}+a_{n-1}\qquad\mbox{f\ue r $n\geq3$}.
+				\end{align*}
+			\item Diese Folge besitzt keinen Grenzwert.
+			\item Denn $a_n\geq n-1$ f\ue r alle $n$.
+			\item Die Folgenglieder $a_n$ werden also unbeschr\ae nkt gro\ss.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Gegenbeispiel}
+		\begin{itemize}
+			\item Die Folge $a_n=(-1)^n$ alterniert zwischen den beiden Zahlen $-1$ und $+1$:
+				\begin{align*}
+				-1,+1,-1,+1,-1,+1,\ldots
+				\end{align*}
+			\item Daher konvergiert die Folge nicht.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Definition}
+	\begin{itemize}
+		\item Eine Folge $(a_n)_n$ hei\ss t \emph{konvergent}, wenn sie einen Grenzwert hat.
+		\item Eine Folge $(a_n)_n$ hei\ss t \emph{beschr\ae nkt}, falls die Menge
+			\begin{align*}
+				\cbc{a_n:n\in\NN}
+			\end{align*}
+			beschr\ae nkt ist.
+		\item Eine Folge $(a_n)_n$ hei\ss t \emph{monoton wachsend}, wenn
+			\begin{align*}
+				a_{n+1}\geq a_n\qquad\mbox{f\ue r alle }n\in\NN.
+			\end{align*}
+		\item Eine Folge $(a_n)_n$ hei\ss t \emph{monoton fallend}, wenn
+			\begin{align*}
+				a_{n+1}\leq a_n\qquad\mbox{f\ue r alle }n\in\NN.
+			\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition}
+	\begin{itemize}
+		\item Jede konvergente Folge ist beschr\ae nkt.
+		\item Eine monoton wachsende beschr\ae nkte Folge $(a_n)_n$ konvergiert und
+			\begin{align*}
+				\lim_{n\to\infty}a_n&=\sup\cbc{a_n:n\in\NN}.
+			\end{align*}
+		\item Eine monoton fallende beschr\ae nkte Folge $(a_n)_n$ konvergiert und
+			\begin{align*}
+				\lim_{n\to\infty}a_n&=\inf\cbc{a_n:n\in\NN}.
+			\end{align*}
+		\item Die konstante Folge $(a_n)_n$ mit $a_n=\alpha\in\RR$ hat den Grenzwert $\alpha$.
+		\item F\ue r jede reelle Zahl $z$ gibt es eine Folge $(a_n)_n$ ratinaler Zahlen $a_n\in\QQ$ mit
+			\begin{align*}
+				\lim_{n\to\infty}a_n=z.
+			\end{align*}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Proposition}
+		Angenommen $(a_n)_n$ und $(b_n)_n$ sind Folgen mit
+		\begin{align*}
+			\lim_{n\to\infty}a_n=\alpha\qquad\mbox{und}\qquad\lim_{n\to\infty}b_n=\beta.
+		\end{align*}
+		\begin{itemize}
+			\item Die Folge $(a_n+b_n)_n$ konvergiert und $ \lim_{n\to\infty}a_n+b_n=\alpha+\beta.  $
+			\item Die Folge $(a_n-b_n)_n$ konvergiert und $ \lim_{n\to\infty}a_n-b_n=\alpha-\beta.  $
+			\item Die Folge $(a_n\cdot b_n)_n$ konvergiert und $ \lim_{n\to\infty}a_n\cdot b_n=\alpha\cdot\beta.  $
+			\item Wenn $\beta>0$, dann konvergiert die Folge $(a_n\cdot b_n)_n$ und $$ \lim_{n\to\infty}\frac{a_n}{b_n}=\frac\alpha\beta.  $$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Rechnen mit reellen Zahlen}
+		\begin{itemize}
+			\item Wir k\oe nnen also \alert{indirekt} mit reellen Zahlen rechnen, indem wir mit Approximationen rechnen.
+			\item Angenommen wir k\oe nnen beliebig gute Approximationen von zwei reellen Zahlen $x,y$ berechnen.
+			\item Dann k\oe nnen wir auch beliebig gute Approximationen von
+				\begin{align*}
+					x\cdot y\quad x+y\quad x-y
+				\end{align*}
+				berechnen.
+			\item Wenn $y\neq0$ k\oe nnen wir au\ss erdem $\frac xy$ beliebig gut approximieren.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Rechnen mit reellen Zahlen}
+		\begin{itemize}
+			\item Wir k\oe nnen also \alert{indirekt} mit reellen Zahlen rechnen, indem wir mit Approximationen rechnen.
+			\item Angenommen wir k\oe nnen beliebig gute Approximationen von zwei reellen Zahlen $x,y$ berechnen.
+			\item Dann k\oe nnen wir auch beliebig gute Approximationen von
+				\begin{align*}
+					x\cdot y\quad x+y\quad x-y
+				\end{align*}
+				berechnen.
+			\item Wenn $y\neq0$ k\oe nnen wir au\ss erdem $\frac xy$ beliebig gut approximieren.
+			\item \itshape Im Vorlesungsteil Numerik werden wir uns damit befassen, \emph{wie} gut diese Approximationen sind.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Reihen}
+		\begin{itemize}
+			\item Reihen sind eine besondere, besonders wichtige Art von Folgen.
+			\item Sei $(a_n)_n$ eine Folge.
+			\item Dann k\oe nnen wir eine weitere Folge $(A_n)_n$ definieren durch
+				\begin{align*}
+					A_n=\sum_{i=1}^na_i=a_1+a_2+\cdots+a_n.
+				\end{align*}
+			\item Die Folge $(A_n)_n$ hei\ss t die \emph{Reihe mit Gliedern $a_n$}.
+			\item \alert{Schreibweise:} wenn $(A_n)_n$ konvergiert, schreiben wir
+				\begin{align*}
+					\lim_{n\to\infty}A_n=\lim_{n\to\infty}\sum_{i=1}^na_i=\sum_{n=1}^\infty a_n.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel: die geometrische Reihe}
+		\begin{itemize}
+			\item Sei $a_n=10^{-n}$.
+			\item Dann ist also $ A_n=\sum_{i=1}^n10^{-i} $.
+			\item Wir berechnen
+				\begin{align*}
+					(1-1/10)A_n&=A_n-A_n/10=\sum_{i=1}^n10^{-i}-\sum_{i=1}^n10^{-i-1}\\
+							   &=\sum_{i=1}^n10^{-i}-\sum_{i=2}^{n+1}10^{-i}=0.1-10^{-n-1}.
+				\end{align*}
+			\item Also gilt $\displaystyle A_n=\frac{0.1-10^{-n-1}}{1-10^{-1}}.  $
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Beispiel: die geometrische Reihe (fortgesetzt)}
+		\begin{itemize}
+			\item Es gilt $\displaystyle A_n=\frac{0.1-10^{-n-1}}{1-10^{-1}}.  $
+			\item Die Folge $10^{-n-1}$ konvergiert rasch gegen 0:
+				\begin{align*}
+				&0.01\\
+				&0.001\\
+				&0.0001\\
+				&\vdots
+				\end{align*}
+			\item Also sehen wir, da\ss
+				\begin{align*}
+					\lim_{n\to\infty}A_n&=\frac{0.1}{0.9}=\frac{1}{9}=0.\overline 1\enspace.
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Allgemein: die geometrische Reihe}
+		\begin{itemize}
+			\item Sei $x$ eine reelle Zahl mit $|x|<1$.
+			\item Dann konvergiert die Reihe $\sum_{n=0}^\infty x^n=\sum_{n=1}^\infty x^{n-1}$ gegen den Grenzwert $1/(1-x)$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zahlenr\ae tsel}
+		\begin{itemize}
+			\item Wie steht es um die Reihe
+				$$\sum_{n=1}^\infty\frac{(-1)^{n+1}}n=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$$
+			\item Wir \ue berlegen uns zun\ae chst, da\ss\ diese Reihe konvergiert.
+			\item Dazu kombinieren wir immer zwei aufeinanderfolgende Summanden:
+				\begin{align*}
+					\frac{1}{2n-1}-\frac{1}{2n}&=\frac{2n-(2n-1)}{4n(n-1)}=\frac{1}{2n(2n-1)}.
+				\end{align*}
+			\item Die ``gerade'' Reihe hat also lauter positive Glieder:
+				\begin{align*}
+					\sum_{n=1}^{N}\bc{\frac{1}{2n-1}-\frac{1}{2n}}=\sum_{n=1}^N\frac{1}{2n(2n-1)}
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zahlenr\ae tsel}
+		\begin{itemize}
+			\item Diese Folge ist daher monoton wachsend.
+			\item Wir m\ue ssen uns noch \ue berlegen, da\ss\ sie auch beschr\ae nkt ist.
+			\item Weil $4n(n-1)>n^2$ f\ue r $n>1$, reicht es aus, die Reihe
+				\begin{align*}
+					\zeta(2)=\sum_{n=1}^\infty\frac{1}{n^2}=\frac{1}{1}+\frac{1}{4}+\frac{1}{9}+\frac{1}{16}+\frac{1}{25}+\frac{1}{36}+\frac{1}{49}+\cdots
+				\end{align*}
+				zu betrachten.
+			\item Dazu fassen wir jeweils $2^k$, $k\geq0$, aufeinanderfolgende Summanden zusammen:
+				\begin{align*}
+					\underbrace{\textcolor{red}{\frac{1}{1}}}_{2^0=1}+\underbrace{\textcolor{blue}{\frac{1}{4}+\frac{1}{9}}}_{2^1=2}+\underbrace{\textcolor{magenta}{\frac{1}{16}+\frac{1}{25}+\frac{1}{36}+\frac{1}{49}}}_{2^2=4}+\cdots
+				\end{align*}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zahlenr\ae tsel}
+		\begin{itemize}
+			\item Jeses Teilst\ue ck enth\ae lt $2^k$ Summanden, von denen der gr\oe\ss te den Wert $2^{-2k}$ hat.
+			\item Deshalb ist jede Teilsumme durch $2^{-k}$ beschr\ae nkt:
+				\begin{align*}
+					\textcolor{red}{\frac{1}{1}}&=1=2^{-0}\\
+					\textcolor{blue}{\frac{1}{4}+\frac{1}{9}}&=0.36\overline 1<0.5=2^{-1}\\
+					\textcolor{magenta}{\frac{1}{16}+\frac{1}{25}+\frac{1}{36}+\frac{1}{49}}&=\frac{26581}{176400}<0.151<0.25=2^{-2}\\
+																							&\vdots
+				\end{align*}
+			\item Wir sehen also, da\ss\ $\displaystyle \zeta(2)\leq\sum_{n=0}^\infty2^{-n}=2.$
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zahlenr\ae tsel}
+		\begin{itemize}
+			\item Die Reihe 
+				$$\sum_{n=1}^\infty\frac{(-1)^{n+1}}n=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$$
+				ist also ebenfalls beschr\ae nkt.
+			\item Weil die ``gerade'' Teilsummen
+				$$\sum_{n=1}^{2N}\frac{(-1)^{n+1}}n$$
+				monton wachsen und
+				\begin{align*}
+				\abs{\sum_{n=1}^{2N+1}\frac{(-1)^{n+1}}n-\sum_{n=1}^{2N}\frac{(-1)^{n+1}}n}\leq\frac{1}{2N+1}
+				\end{align*}
+				beliebig klein wird, konvergiert die Reihe $\sum_{n=1}^\infty(-1)^{n+1}/n$.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{\mytitle}
+	\begin{block}{Zusammenfassung}
+		\begin{itemize}
+			\item Eine Folge konvergiert gegen einen Grenzwert $z$, wenn die Folgenglieder $z$ schlie\ss lich beliebig nahe kommen.
+			\item Grenzwerte sind mit den Grundrechenarten vertr\ae glich, daher k\oe nnen wir jetzt prinzipiell mit reellen Zahlen rechnen.
+			\item Reihen sind spezielle Folgen, die eine Summenform haben.
+		\end{itemize}
+	\end{block}
+\end{frame}
+\end{document}
